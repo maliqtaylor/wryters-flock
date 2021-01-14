@@ -7,6 +7,8 @@ import authService from "../../services/authService";
 import Users from '../Users/Users'
 import "./App.css";
 
+//Navbar, form pages, entries, searches, profile
+
 class App extends Component {
   state = {
     user: authService.getUser(),
