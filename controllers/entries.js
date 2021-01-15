@@ -10,7 +10,7 @@ module.exports = {
 
 
 function newEntry(req, res) {
-    req.body.author = req.user._id
+    // req.body.author = req.user._id
     Entry.create(req.body)
     .then(entry => {res.json(entry)})
     .catch(err => {res.json(err)})
@@ -32,13 +32,13 @@ function show(req, res) {
 
 function update(req, res) {
     Entry.findByIdAndUpdate(req.params.id, req.body, {new:true})
-    .then(entry => {req.json(entry)})
-    .catch(err => {req.json(err)})
+    .then(entry => {res.json(entry)})
+    .catch(err => {res.json(err)})
 }
 
 function deleteEntry(req, res) {
     Entry.findByIdAndDelete(req.params.id)
-    .then(entry => {req.json(entry)})
-    .catch(err => {req.json(err)})
+    .then(entry => {res.json(entry)})
+    .catch(err => {res.json(err)})
 }
 
