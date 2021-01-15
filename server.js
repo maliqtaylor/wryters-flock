@@ -9,6 +9,9 @@ require('./config/database');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const entriesRouter = require('./routes/entries');
+const likesRouter = require('./routes/likes');
+const commentsRouter = require('./routes/comments');
+// const ratingsRouter = require('./routes/ratings');
 
 const cors = require('cors')
 
@@ -24,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/entries', entriesRouter);
+app.use('/api/likes', likesRouter);
+app.use('/api/comments', commentsRouter);
+// app.use('/api/ratings', ratingsRouter);
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
