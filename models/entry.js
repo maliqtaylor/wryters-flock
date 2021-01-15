@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const likeSchema = new Schema ({
-    liker: {type: Schema.Types.ObjectId, ref: "User"},
-    liked: {type:Boolean, default: null}
-}, 
-{timestamps: true}
+const likeSchema = new Schema({
+  liker: { type: Schema.Types.ObjectId, ref: "User" },
+  liked: { type: Boolean, default: null }
+},
+  { timestamps: true }
 )
 
 const commentSchema = new Schema({
@@ -23,20 +23,19 @@ const ratingSchema = new Schema({
   { timestamps: true }
 )
 
-const entrySchema = new Schema ({
-    title: { type: String, required: true },
-    description: {type: String, required: true},
-    private: {type: Boolean, required: true},
-    classification: {type: String,  enum:["Poem", "Short Story", "Blog", "Lyrics", "Novel", "Essay", "Speech", "Comic", "Journal", "Play"]},
-    genre: { type: String, enum: ["Fantasy", "Mystery", "Drama", "Comedy", "AutoBiography", "Non-Fiction", "Fiction", "Fan-Fic", "Sci-Fi", "Horror", "Romance", "Historical", "Myth", "Adventure"]},
-    author: {type: Schema.Types.ObjectId, ref: "User"},
-    content: String,
-    comments: [commentSchema],
-    likes: [likeSchema],
-    rating: [ratingSchema]
+const entrySchema = new Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  private: { type: Boolean, default: false },
+  classification: { type: String, enum: ["Poem", "Short Story", "Blog", "Lyrics", "Novel", "Essay", "Speech", "Comic", "Journal", "Play"] },
+  genre: { type: String, enum: ["Fantasy", "Mystery", "Drama", "Comedy", "AutoBiography", "Non-Fiction", "Fiction", "Fan-Fic", "Sci-Fi", "Horror", "Romance", "Historical", "Myth", "Adventure"] },
+  author: { type: Schema.Types.ObjectId, ref: "User" },
+  content: String,
+  comments: [commentSchema],
+  likes: [likeSchema],
+  rating: [ratingSchema]
 },
-{timestamps: true}
+  { timestamps: true }
 )
-
 
 module.exports = mongoose.model("Entry", entrySchema)

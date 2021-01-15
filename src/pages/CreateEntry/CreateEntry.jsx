@@ -77,7 +77,6 @@ async function handleSubmit(e) {
               className="active"
               value={state.private}
               onChange={handleChange}
-              required
             />
             <label htmlFor="private">Private</label>
           </div>
