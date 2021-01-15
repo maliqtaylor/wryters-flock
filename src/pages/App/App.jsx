@@ -6,6 +6,11 @@ import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from '../Users/Users'
 import "./App.css";
+import CreateEntry from "../CreateEntry/CreateEntry"
+import DisplayEntry from "../DisplayEntry/DisplayEntry"
+import EntryIndex from "../EntryIndex/EntryIndex"
+import Quotes from "../Quotes/Quotes"
+
 
 //Navbar, form pages, entries, searches, profile
 
@@ -63,6 +68,14 @@ class App extends Component {
           path="/users"
           render={() =>
             user ? <Users /> : <Redirect to="/login" />
+          }
+        />
+         <Route
+          exact
+          path="/entries/create"
+          render={() =>
+              <CreateEntry 
+              user={this.state.user} />
           }
         />
       </>
