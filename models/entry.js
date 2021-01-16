@@ -30,7 +30,7 @@ const entrySchema = new Schema({
   classification: { type: String, enum: ["Poem", "Short Story", "Blog", "Lyrics", "Novel", "Essay", "Speech", "Comic", "Journal", "Play"] },
   genre: { type: String, enum: ["Fantasy", "Mystery", "Drama", "Comedy", "AutoBiography", "Non-Fiction", "Fiction", "Fan-Fic", "Sci-Fi", "Horror", "Romance", "Historical", "Myth", "Adventure"] },
   author: { type: Schema.Types.ObjectId, ref: "User" },
-  content: {type:Schema.Types.ObjectId, ref:"Draft"},
+  content: { type: Schema.Types.ObjectId, ref: "Draft" },
   comments: [commentSchema],
   likes: [likeSchema],
   rating: [ratingSchema]

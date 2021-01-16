@@ -10,10 +10,11 @@ function CreateEntry(props) {
   const history = useHistory();
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
-  
+
   const [state, handleChange] = useForm({
     title: "",
     description: "",
+    content: "",
     private: Boolean,
     classification: "",
     genre: "",
@@ -26,7 +27,7 @@ function CreateEntry(props) {
   const [content, setContent] = useContent({
     content: ""
   })
-  
+
   async function handleCreateEntry(newEntry) {
     await entryAPI.create(newEntry);
     history.push("/entries");
@@ -44,12 +45,21 @@ function CreateEntry(props) {
   return (
     <>
       <div className="AddEntry">
+        <Document
+          value={content.content}
+          onChange={setContent}
+        />
+
         <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
           <div className="row">
             <div>
-              <Document 
-                value={content.content}
-                onChange={setContent}
+              <input
+                name="content"
+                id="content"
+                type="hidden"
+                className="active"
+                value={`${content.content}`}
+                onChange={handleChange}
               />
             </div>
             <div className="input-field col s12">
