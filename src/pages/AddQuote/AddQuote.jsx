@@ -1,44 +1,47 @@
 import React, { useState, useEffect } from "react";
 import "./AddQuote.css";
 import { useHistory } from "react-router-dom";
-// import { useForm } from "../../hooks/useForm";
-import * as quoteAPI from "../../services/quote-api";
-
+import axios from "axios"
 function AddQuote() {
-  const history = useHistory();
-//   const formRef = useRef();
-
-  const [state, handleChange] = useState({
-      content: '',
-      author: ''
+  const history = useHistory()
+  const [quote, setQuote] = useState({
+    content: "",
+    author: "",
   })
-
-async function handleAddQuote(newQuote){
-    await quoteAPI.getQuote(newQuote)
-    history.push('/entryIndex') 
-}
-useEffect(()=> {
-    console.log('useEffect runs')
-    
-
-},
-    
-  async function handleSubmit(e) {
-    e.preventDefault()
-    handleAddQuote(state)
-
+  useEffect(() => {
+    async function getQuote() {
+      const response = await axios.get('https://zenquotes.io/api/random',
+        {
+          method: 'GET',
+          mode: 'no-cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+          credentials: 'same-origin'
+        })
+      setQuote(response.data)
+      console.log(response)
+    }
+    getQuote()
   })
-
-return (
+  function handleAddQuote(q) {
+    quote.content = q.q
+    quote.author = q.a
+    history.push("/entryIndex")
+  }
+  return (
     <>
-    <div className="AddQuote">
-        Search Quotes Here
-        <br/><br/>
-        <button type="submit" onClick={handleChange}>Add Quote</button>
-    </div>
+      <div className="AddQuote">
+        Add Quotes Here
+        <br />
+        <br />
+        <button type="submit" onClick={handleAddQuote}>
+          Add Quote
+        </button>
+      </div>
     </>
-)
-
+  );
 }
-
 export default AddQuote;
