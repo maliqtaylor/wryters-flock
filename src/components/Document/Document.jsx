@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
 const Document = (props) => {
+
   return (
     <Editor
       // disabled={true}
-      value=''
+      value={props.value}
       init={{
         height: 650,
         resize: false,
@@ -24,6 +25,7 @@ const Document = (props) => {
           'alignleft aligncenter alignright alignjustify |' +
           'bullist numlist |'
       }}
+      onEditorChange={props.onChange}
     />
   );
 }

@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./CreateEntry.css";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../components/hooks/useForm";
+import { useContent } from "../../components/hooks/useContent"
 import * as entryAPI from "../../services/entry-api";
+import Document from "../../components/Document/Document"
 
 function CreateEntry(props) {
   const history = useHistory();
@@ -11,7 +13,6 @@ function CreateEntry(props) {
   
   const [state, handleChange] = useForm({
     title: "",
-    content: "",
     description: "",
     private: Boolean,
     classification: "",
@@ -21,12 +22,15 @@ function CreateEntry(props) {
     likes: [],
     ratings: [],
   });
+
+  const [content, setContent] = useContent({
+    content: ""
+  })
   
   async function handleCreateEntry(newEntry) {
     await entryAPI.create(newEntry);
     history.push("/entries");
   }
-
 
   useEffect(() => {
     formRef.current.checkValidity() ? setValidEntry(false) : setValidEntry(true);
@@ -42,6 +46,12 @@ function CreateEntry(props) {
       <div className="AddEntry">
         <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
           <div className="row">
+            <div>
+              <Document 
+                value={content.content}
+                onChange={setContent}
+              />
+            </div>
             <div className="input-field col s12">
               <input
                 name="title"
