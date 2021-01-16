@@ -9,9 +9,9 @@ require('./config/database');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const entriesRouter = require('./routes/entries');
-const likesRouter = require('./routes/likes');
-const commentsRouter = require('./routes/comments');
 const quotesRouter = require('./routes/quotes')
+// const likesRouter = require('./routes/likes');
+// const commentsRouter = require('./routes/comments');
 // const ratingsRouter = require('./routes/ratings');
 
 const cors = require('cors')
