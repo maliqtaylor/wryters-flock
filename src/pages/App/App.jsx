@@ -7,9 +7,9 @@ import authService from "../../services/authService";
 import Users from '../Users/Users'
 import "./App.css";
 import CreateEntry from "../CreateEntry/CreateEntry"
-import DisplayEntry from "../DisplayEntry/DisplayEntry"
-import EntryIndex from "../EntryIndex/EntryIndex"
-import Quotes from "../Quotes/Quotes"
+// import DisplayEntry from "../DisplayEntry/DisplayEntry"
+// import EntryIndex from "../EntryIndex/EntryIndex"
+// import Quotes from "../Quotes/Quotes"
 
 
 //Navbar, form pages, entries, searches, profile
