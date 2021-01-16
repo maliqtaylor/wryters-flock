@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import Users from '../Users/Users'
+import Users from "../Users/Users";
 import "./App.css";
-import CreateEntry from "../CreateEntry/CreateEntry"
-import DisplayEntry from "../DisplayEntry/DisplayEntry"
-import EntryIndex from "../EntryIndex/EntryIndex"
-import Quotes from "../Quotes/Quotes"
-
+import CreateEntry from "../CreateEntry/CreateEntry";
+import DisplayEntry from "../DisplayEntry/DisplayEntry";
+import EntryIndex from "../EntryIndex/EntryIndex";
+import AddQuote from "../AddQuote/AddQuote";
 
 //Navbar, form pages, entries, searches, profile
 
@@ -30,10 +29,10 @@ class App extends Component {
   };
 
   render() {
-    const { user } = this.state
+    const { user } = this.state;
     return (
       <>
-        <NavBar user={this.state.user} handleLogout={this.handleLogout}/>
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Route
           exact
           path="/"
@@ -66,17 +65,17 @@ class App extends Component {
         <Route
           exact
           path="/users"
-          render={() =>
-            user ? <Users /> : <Redirect to="/login" />
-          }
+          render={() => (user ? <Users /> : <Redirect to="/login" />)}
         />
-         <Route
+        <Route
           exact
           path="/entries/create"
-          render={() =>
-              <CreateEntry 
-              user={this.state.user} />
-          }
+          render={() => <CreateEntry user={this.state.user} />}
+        />
+        <Route
+          exact
+          path="/entries/index"
+          render={() => <AddQuote user={this.state.user} />}
         />
       </>
     );
