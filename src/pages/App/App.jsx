@@ -6,10 +6,12 @@ import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
+
 import CreateEntry from "../CreateEntry/CreateEntry";
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import AddQuote from "../AddQuote/AddQuote";
+
 
 //Navbar, form pages, entries, searches, profile
 
