@@ -3,7 +3,7 @@ const {Schema} = mongoose
 
 const draftSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: "User" },
-  content: { type: String }
+  content: { type: String, default: '' }
 },
   { timestamps: true }
 )
