@@ -7,9 +7,11 @@ import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
 import CreateEntry from "../CreateEntry/CreateEntry";
+import Draft from "../Draft/CreateDraft"
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import AddQuote from "../AddQuote/AddQuote";
+import CreateDraft from "../Draft/CreateDraft";
 
 //Navbar, form pages, entries, searches, profile
 
@@ -76,6 +78,11 @@ class App extends Component {
           exact
           path="/entries/index"
           render={() => <AddQuote user={this.state.user} />}
+        />
+        <Route
+          exact
+          path="/draft"
+          render={() => <CreateDraft user={this.state.user} />}
         />
       </>
     );

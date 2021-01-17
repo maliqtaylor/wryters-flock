@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./CreateEntry.css";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../components/hooks/useForm";
-import { useContent } from "../../components/hooks/useContent"
 import * as entryAPI from "../../services/entry-api";
-import Document from "../../components/Document/Document"
 
 function CreateEntry(props) {
   const history = useHistory();
@@ -24,10 +22,6 @@ function CreateEntry(props) {
     ratings: [],
   });
 
-  const [content, setContent] = useContent({
-    content: ""
-  })
-
   async function handleCreateEntry(newEntry) {
     await entryAPI.create(newEntry);
     history.push("/entries");
@@ -45,22 +39,9 @@ function CreateEntry(props) {
   return (
     <>
       <div className="AddEntry">
-        <Document
-          value={content.content}
-          onChange={setContent}
-        />
-
         <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
           <div className="row">
             <div>
-              <input
-                name="content"
-                id="content"
-                type="hidden"
-                className="active"
-                value={`${content.content}`}
-                onChange={handleChange}
-              />
             </div>
             <div className="input-field col s12">
               <input

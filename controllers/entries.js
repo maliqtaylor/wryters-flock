@@ -19,14 +19,16 @@ function newEntry(req, res) {
 
 function index(req, res) {
   Entry.find({})
-    .populate('author')
+    .populate('owner')
+    .populate('draft')
     .then(entry => { res.json(entry) })
     .catch(err => { res.json(err) })
 }
 
 function show(req, res) {
-  Entry.findOne({ author: req.user._id })
-    .populate('author')
+  Entry.findOne({ owner: req.user._id })
+    .populate('owner')
+    .populate('draft')
     .then(entry => { res.json(entry) })
     .catch(err => { res.json(err) })
 }
