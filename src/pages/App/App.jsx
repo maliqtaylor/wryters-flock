@@ -6,7 +6,6 @@ import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
-import CreateEntry from "../CreateEntry/CreateEntry";
 import Draft from "../Draft/CreateDraft"
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
 import EntryIndex from "../EntryIndex/EntryIndex";
@@ -68,11 +67,6 @@ class App extends Component {
           exact
           path="/users"
           render={() => (user ? <Users user={this.state.user} /> : <Redirect to="/login" />)}
-        />
-        <Route
-          exact
-          path="/entries/create"
-          render={() => <CreateEntry user={this.state.user} />}
         />
         <Route
           exact
