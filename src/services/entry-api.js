@@ -7,5 +7,5 @@ export function create(entry) {
 		headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
 		body: JSON.stringify(entry)
   }, {mode: "cors"})
-  .then(res => res.json());
+  .then((res => {console.log(res.json())}))
 }
