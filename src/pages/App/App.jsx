@@ -67,7 +67,7 @@ class App extends Component {
         <Route
           exact
           path="/users"
-          render={() => (user ? <Users /> : <Redirect to="/login" />)}
+          render={() => (user ? <Users user={this.state.user} /> : <Redirect to="/login" />)}
         />
         <Route
           exact
@@ -82,7 +82,10 @@ class App extends Component {
         <Route
           exact
           path="/draft"
-          render={() => <CreateDraft user={this.state.user} />}
+          render={(location) => <CreateDraft
+            user={this.state.user}
+            location={location}
+          />}
         />
       </>
     );
