@@ -3,5 +3,7 @@ const draftsCtrl = require('../controllers/drafts')
 
 router.get("/:id", draftsCtrl.show)
 router.post("/", draftsCtrl.create)
+router.put("entries/:id", draftsCtrl.update)
 // router.delete("/entries/:id", commentsCtrl.delete)
-// router.put("entries/:id", commentsCtrl.update)
+
+module.exports = router;
