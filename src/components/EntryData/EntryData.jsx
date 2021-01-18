@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./CreateEntry.css";
 import { useHistory } from "react-router-dom";
-import { useForm } from "../../components/hooks/useForm";
+import { useForm } from "../hooks/useForm";
 import * as entryAPI from "../../services/entry-api";
 
-function CreateEntry(props) {
+function EntryData(props) {
   const history = useHistory();
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
@@ -146,4 +145,4 @@ function CreateEntry(props) {
   );
 }
 
-export default CreateEntry;
+export default EntryData;

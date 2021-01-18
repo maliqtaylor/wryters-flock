@@ -1,5 +1,6 @@
 import React from "react";
 import Document from "../../components/Document/Document"
+import EntryData from "../../components/EntryData/EntryData"
 import { useContent } from "../../components/hooks/useContent"
 
 const CreateDraft = (props) =>{
@@ -13,6 +14,8 @@ const CreateDraft = (props) =>{
       <Document
         value={content.content}
         onChange={setContent}
+      />
+      <EntryData 
       />
     </>
   )

@@ -13,7 +13,7 @@ function newEntry(req, res) {
   req.body.author = req.user._id
   console.log(req.body);
   Entry.create(req.body)
-    .then(entry => { res.json(entry) })
+    .then(entry => { console.log(res.json())})
     .catch(err => { res.json(err) })
 }
 
