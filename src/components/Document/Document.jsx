@@ -2,10 +2,10 @@ import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
 const Document = (props) => {
-
   return (
     <Editor
       // disabled={true}
+      apiKey={`${process.env.API_KEY}`}
       value={props.value}
       init={{
         height: 650,

@@ -11,21 +11,21 @@ const NavBar = ({ user, handleLogout }) => {
 
           <Dropdown item text="My Info">
             <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link to="" onClick={handleLogout}>
+              <Link to="" onClick={handleLogout}>
+                <Dropdown.Item>
                   LogOut
-                </Link>
               </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="/profile">
+              </Link>
+              <Link to="/profile">
+                <Dropdown.Item>
                   Profile
-                </Link>
               </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="">
+              </Link>
+              <Link to="">
+                <Dropdown.Item>
                   Settings
-                </Link>
               </Dropdown.Item>
+              </Link>
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item>
@@ -38,19 +38,19 @@ const NavBar = ({ user, handleLogout }) => {
               </li> */}
         </Menu>
       ) : (
-        <Menu>
-          <Menu.Item>
-            <Link to="/login" className="nav-link">
-              Log In
+          <Menu>
+            <Menu.Item>
+              <Link to="/login" className="nav-link">
+                Log In
             </Link>{" "}
-          </Menu.Item>
-          <Menu.Item>
+            </Menu.Item>
             <Link to="/signup" className="nav-link">
-              Sign Up
+              <Menu.Item>
+                Sign Up
+            </Menu.Item>
             </Link>{" "}
-          </Menu.Item>
-        </Menu>
-      )}
+          </Menu>
+        )}
     </>
   );
 };

@@ -3,6 +3,7 @@ import Document from "../../components/Document/Document"
 import EntryData from "../../components/EntryData/EntryData"
 import { useHistory } from "react-router-dom"
 import { useContent } from "../../components/hooks/useContent"
+import { Container } from 'semantic-ui-react'
 
 const CreateDraft = (props) => {
   const history = useHistory()
@@ -12,19 +13,21 @@ const CreateDraft = (props) => {
     content: ""
   })
 
-  if (props.history.location.state ) {               
+  if (props.history.location.state) {
     return (
       <>
-        <Document
-          value={content.content}
-          onChange={setContent}
-        />
-        <EntryData
-          draftId={props.history.location.state.draftId}
-        />
+        <Container text>
+          <Document
+            value={content.content}
+            onChange={setContent}
+          />
+          <EntryData
+            draftId={props.history.location.state.draftId}
+          />
+        </Container>
       </>
     )
-  } else { 
+  } else {
     history.push("/profile")
     return null
   }
