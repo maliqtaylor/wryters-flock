@@ -3,7 +3,9 @@ import Document from "../../components/Document/Document"
 import EntryData from "../../components/EntryData/EntryData"
 import { useContent } from "../../components/hooks/useContent"
 
-const CreateDraft = (props) =>{
+const CreateDraft = (props) => {
+
+  console.log(props.history.location.state)
 
   const [content, setContent] = useContent({
     content: ""
@@ -15,7 +17,8 @@ const CreateDraft = (props) =>{
         value={content.content}
         onChange={setContent}
       />
-      <EntryData 
+      <EntryData
+        draftId={props.history.location.state.draftId}
       />
     </>
   )

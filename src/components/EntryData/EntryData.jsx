@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import * as entryAPI from "../../services/entry-api";
 
-function EntryData() {
+function EntryData(props) {
   const history = useHistory();
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
@@ -11,7 +11,7 @@ function EntryData() {
   const [state, handleChange] = useForm({
     title: "",
     description: "",
-    content: "",
+    content: props.draftId,
     private: false,
     classification: "",
     genre: "",
@@ -50,6 +50,7 @@ function EntryData() {
             <div>
             </div>
             <div className="input-field col s12">
+              <input type="hidden" name="content" value={props.draftId} />
               <input
                 name="title"
                 id="title"

@@ -7,8 +7,10 @@ const Users = () => {
 
   async function handleCreateDraft(newEntry) {
     let draftInfo = await draftAPI.create(newEntry);
-    console.log(draftInfo)
-    history.push('/draft')
+    history.push({
+      pathname: '/draft',
+      state: { draftId: draftInfo._id }
+    })
   }
 
   async function handleSubmit(e) {
