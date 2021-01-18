@@ -19,6 +19,8 @@ const CreateDraft = (props) => {
     })();
   })
 
+  let myContent = draftAPI.getOne(props.history.location.state.draftId)
+
   if (props.history.location.state) {
     return (
       <>
@@ -29,6 +31,7 @@ const CreateDraft = (props) => {
           />
           <EntryData
             draftId={props.history.location.state.draftId}
+            value={myContent}
           />
         </Container>
       </>

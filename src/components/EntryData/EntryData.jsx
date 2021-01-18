@@ -24,7 +24,6 @@ function EntryData(props) {
 
   async function handleCreateEntry(newEntry) {
     newEntry.content = props.draftId
-    console.log(newEntry);
     await entryAPI.create(newEntry);
     history.push("/entries");
   }
@@ -48,7 +47,7 @@ function EntryData(props) {
             <div>
             </div>
             <div className="input-field col s12">
-              <input type="hidden" name="content" value={props.draftId} />
+              <input type="hidden" name="content" value={props.myContent} />
               <input
                 name="title"
                 id="title"
