@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import * as entryAPI from "../../services/entry-api";
 
-function EntryData(props) {
+function EntryData() {
   const history = useHistory();
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
@@ -22,7 +22,8 @@ function EntryData(props) {
   });
 
   async function handleCreateEntry(newEntry) {
-    await entryAPI.create(newEntry);
+    let exam = await entryAPI.create(newEntry);
+    console.log(exam);
     history.push("/entries");
   }
 
@@ -30,8 +31,6 @@ function EntryData(props) {
     let test = await entryAPI.index();
     console.log(test);
   }
-
-
 
   useEffect(() => {
     formRef.current.checkValidity() ? setValidEntry(false) : setValidEntry(true);

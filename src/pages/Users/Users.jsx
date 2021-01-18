@@ -1,14 +1,14 @@
 import React from 'react';
 import * as draftAPI from "../../services/draft-api";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Users = () => {
+  const history = useHistory()
 
   async function handleCreateDraft(newEntry) {
     let draftInfo = await draftAPI.create(newEntry);
-    let test = await draftAPI.index()
-    console.log(test);
     console.log(draftInfo)
+    history.push('/draft')
   }
 
   async function handleSubmit(e) {
@@ -18,13 +18,7 @@ const Users = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Link
-        to={{
-          pathname: "/draft",
-          state: { mssg: 'hi' }
-        }}>
-        <button type='submit'>New Draft</button>
-      </Link>
+      <button type='submit'>New Draft</button>
     </form>
   )
 }

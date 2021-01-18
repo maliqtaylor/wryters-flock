@@ -11,7 +11,7 @@ module.exports = {
 
 function newEntry(req, res) {
   req.body.owner = req.user._id
-  console.log(req.body);
+  console.log(req.body)
   Entry.create(req.body)
     .then(entry => res.json(entry))
     .catch(err => { res.json(err) })
