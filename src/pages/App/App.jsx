@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
@@ -73,9 +73,9 @@ class App extends Component {
         <Route
           exact
           path="/draft"
-          render={(location) => <CreateDraft
+          render={({ history }) => <CreateDraft
+            history={history}
             user={this.state.user}
-            location={location}
           />}
         />
       </>
