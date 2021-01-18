@@ -11,7 +11,7 @@ function EntryData(props) {
   const [state, handleChange] = useForm({
     title: "",
     description: "",
-    content: props.draftId,
+    content: props._draftId,
     private: false,
     classification: "",
     genre: "",
