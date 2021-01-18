@@ -8,10 +8,11 @@ function EntryData(props) {
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
 
+  console.log(props.draftId)
+
   const [state, handleChange] = useForm({
     title: "",
     description: "",
-    content: props._draftId,
     private: false,
     classification: "",
     genre: "",
@@ -22,14 +23,10 @@ function EntryData(props) {
   });
 
   async function handleCreateEntry(newEntry) {
-    let exam = await entryAPI.create(newEntry);
-    console.log(exam);
+    newEntry.content = props.draftId
+    console.log(newEntry);
+    await entryAPI.create(newEntry);
     history.push("/entries");
-  }
-
-  async function handleGetEntry(newEntry) {
-    let test = await entryAPI.index();
-    console.log(test);
   }
 
   useEffect(() => {
@@ -38,7 +35,8 @@ function EntryData(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    handleGetEntry()
+    state.content = props._draftId
+    console.log(state)
     handleCreateEntry(state);
   }
 
