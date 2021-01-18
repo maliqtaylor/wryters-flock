@@ -18,23 +18,7 @@ function EntryCard({ user, entry }) {
     //     </div>
     //   </div>
     // </Card>
-
-    <div className='card'>
-  <div className='card-content'>
-    Content
-  </div>
-  <div className='card-action'>
-    <a className='btn-activator'>
-      Register
-    </a>
-  </div>
-  <div className='card-reveal'>
-    <a className='btn'>
-      Register
-    </a>
-  </div>
-</div>
-  );
+    )
 }
 
 export default EntryCard;
