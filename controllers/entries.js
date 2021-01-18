@@ -27,7 +27,7 @@ function newEntry(req, res) {
 function index(req, res) {
   Entry.find({})
     .populate('owner')
-    .populate('draft')
+    .populate('content')
     .then(entry => { res.json(entry) })
     .catch(err => { res.json(err) })
 }
@@ -35,7 +35,7 @@ function index(req, res) {
 function show(req, res) {
   Entry.findOne({ owner: req.user._id })
     .populate('owner')
-    .populate('draft')
+    .populate('content')
     .then(entry => { res.json(entry) })
     .catch(err => { res.json(err) })
 }

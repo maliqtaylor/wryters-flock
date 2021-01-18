@@ -8,6 +8,7 @@ import Users from "../Users/Users";
 import "./App.css";
 import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
+import EntryIndex from "../EntryIndex/EntryIndex";
 
 //Navbar, form pages, entries, searches, profile
 
@@ -69,6 +70,13 @@ class App extends Component {
           exact
           path="/entries/index"
           render={() => <AddQuote user={this.state.user} />}
+        />
+        <Route
+          exact
+          path="/entries"
+          render={() => <EntryIndex 
+            user={this.state.user} 
+          />}
         />
         <Route
           exact
