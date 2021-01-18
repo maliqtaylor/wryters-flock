@@ -1,4 +1,5 @@
 const Entry = require('../models/entry')
+const Draft = require('../models/draft')
 
 module.exports = {
   new: newEntry,
@@ -12,6 +13,12 @@ module.exports = {
 function newEntry(req, res) {
   req.body.owner = req.user._id
   console.log(req.body)
+  Draft.findById(req.body.content)
+    .then(draft => {
+      draft.posted = true
+      draft.save()
+    })
+
   Entry.create(req.body)
     .then(entry => res.json(entry))
     .catch(err => { res.json(err) })
