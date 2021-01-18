@@ -12,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
               <li><Link to="/users" className="nav-link">Users</Link></li>
               <Link to='' className='nav-link' onClick={handleLogout}>LOG OUT</Link>
               <li><Link to="/entries" className="nav-link">View Posts</Link></li>
-              <li><Link to="/draft" className="nav-link">Draft your Masterpiece</Link></li>
+              {/* <li><Link to="/draft" className="nav-link">Draft your Masterpiece</Link></li> */}
               <li className="nav-search-bar">
                 <input type="text"/>
                 <button type="button" to="/entries">Search</button>

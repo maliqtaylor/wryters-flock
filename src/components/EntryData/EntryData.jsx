@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import * as entryAPI from "../../services/entry-api";
 
-function EntryData(props) {
+function EntryData() {
   const history = useHistory();
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
@@ -12,18 +12,24 @@ function EntryData(props) {
     title: "",
     description: "",
     content: "",
-    private: Boolean,
+    private: false,
     classification: "",
     genre: "",
-    author: "",
+    owner: "",
     comments: [],
     likes: [],
     ratings: [],
   });
 
   async function handleCreateEntry(newEntry) {
-    await entryAPI.create(newEntry);
+    let exam = await entryAPI.create(newEntry);
+    console.log(exam);
     history.push("/entries");
+  }
+
+  async function handleGetEntry(newEntry) {
+    let test = await entryAPI.index();
+    console.log(test);
   }
 
   useEffect(() => {
@@ -32,6 +38,7 @@ function EntryData(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    handleGetEntry()
     handleCreateEntry(state);
   }
 
