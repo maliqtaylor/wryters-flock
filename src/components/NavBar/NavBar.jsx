@@ -7,7 +7,7 @@ const NavBar = ({ user, handleLogout }) => {
     <>
       {user ? (
         <Menu>
-          <Menu.Item>Welcome, {user.name}</Menu.Item>
+          <Menu.Item>Wryters Flock</Menu.Item>
 
           <Dropdown item text="My Info">
             <Dropdown.Menu>
