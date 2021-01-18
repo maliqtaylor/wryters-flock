@@ -1,5 +1,5 @@
 import tokenService from "../services/tokenService"
-const BASE_URL = '/api/drafts'
+const BASE_URL = '/api/drafts/'
 
 export function create(entry) {
   return fetch(BASE_URL, {
@@ -15,6 +15,15 @@ export function index() {
     method: "GET",
     headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
     body: JSON.stringify()
+  }, { mode: "cors" })
+    .then(res => res.json());
+}
+
+export function update(draftID, content) {
+  return fetch(BASE_URL + draftID, {
+    method: "PUT",
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+    body: JSON.stringify(content)
   }, { mode: "cors" })
     .then(res => res.json());
 }
