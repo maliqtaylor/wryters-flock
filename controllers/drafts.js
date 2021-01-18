@@ -5,6 +5,7 @@ module.exports = {
   remove,
   update,
   show,
+  index,
 }
 
 function create(req, res) {
@@ -30,5 +31,12 @@ function show(req, res) {
   Draft.findOne({ author: req.user._id })
     .populate('author')
     .then(entry => { res.json(entry) })
+    .catch(err => { res.json(err) })
+}
+
+function index(req, res) {
+  Draft.find({})
+    .populate('author')
+    .then(draft => { res.json(draft) })
     .catch(err => { res.json(err) })
 }

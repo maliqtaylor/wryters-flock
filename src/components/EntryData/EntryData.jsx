@@ -12,10 +12,10 @@ function EntryData(props) {
     title: "",
     description: "",
     content: "",
-    private: Boolean,
+    private: false,
     classification: "",
     genre: "",
-    author: "",
+    owner: "",
     comments: [],
     likes: [],
     ratings: [],
@@ -26,12 +26,20 @@ function EntryData(props) {
     history.push("/entries");
   }
 
+  async function handleGetEntry(newEntry) {
+    let test = await entryAPI.index();
+    console.log(test);
+  }
+
+
+
   useEffect(() => {
     formRef.current.checkValidity() ? setValidEntry(false) : setValidEntry(true);
   }, [state]);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    handleGetEntry()
     handleCreateEntry(state);
   }
 

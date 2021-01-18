@@ -10,10 +10,10 @@ module.exports = {
 
 
 function newEntry(req, res) {
-  req.body.author = req.user._id
+  req.body.owner = req.user._id
   console.log(req.body);
   Entry.create(req.body)
-    .then(entry => { console.log(res.json())})
+    .then(entry => res.json(entry))
     .catch(err => { res.json(err) })
 }
 

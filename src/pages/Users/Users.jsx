@@ -6,6 +6,8 @@ const Users = () => {
 
   async function handleCreateDraft(newEntry) {
     let draftInfo = await draftAPI.create(newEntry);
+    let test = await draftAPI.index()
+    console.log(test);
     console.log(draftInfo)
   }
 
