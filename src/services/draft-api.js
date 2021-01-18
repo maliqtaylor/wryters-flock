@@ -9,6 +9,13 @@ export function create(entry) {
   }, { mode: "cors" })
     .then(res => res.json());
 }
+export function getOne(draftID) {
+  return fetch(BASE_URL + draftID, {
+    method: "GET",
+    headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
+  }, { mode: "cors" })
+    .then(res => res.json());
+}
 
 export function index() {
   return fetch(BASE_URL, {

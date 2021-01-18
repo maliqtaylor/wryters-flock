@@ -13,11 +13,10 @@ module.exports = {
 function newEntry(req, res) {
   req.body.owner = req.user._id
   console.log(req.body)
-  Draft.findById(req.body.content)
-    .then(draft => {
-      draft.posted = true
-      draft.save()
-    })
+  // Draft.findById(req.body.content)
+  //   .then(draft => {
+  //     draft.save()
+  //   })
 
   Entry.create(req.body)
     .then(entry => res.json(entry))

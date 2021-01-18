@@ -11,7 +11,7 @@ function EntryData(props) {
   const [state, handleChange] = useForm({
     title: "",
     description: "",
-    content: props._draftId,
+    content: props.myContent,
     private: false,
     classification: "",
     genre: "",
@@ -23,7 +23,6 @@ function EntryData(props) {
 
   async function handleCreateEntry(newEntry) {
     let exam = await entryAPI.create(newEntry);
-    console.log(exam);
     history.push("/entries");
   }
 
@@ -50,7 +49,7 @@ function EntryData(props) {
             <div>
             </div>
             <div className="input-field col s12">
-              <input type="hidden" name="content" value={props.draftId} />
+              <input type="hidden" name="content" value={props.myContent} />
               <input
                 name="title"
                 id="title"

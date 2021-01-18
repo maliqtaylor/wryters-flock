@@ -16,12 +16,13 @@ const CreateDraft = (props) => {
 
   useEffect(() => {
     (async function () {
-      console.log(content)
       let test = await draftAPI.update(props.history.location.state.draftId, content)
       console.log(test);
 
     })();
   })
+
+  let myContent = draftAPI.getOne(props.history.location.state.draftId)
 
   if (props.history.location.state) {
     return (
@@ -33,6 +34,7 @@ const CreateDraft = (props) => {
           />
           <EntryData
             draftId={props.history.location.state.draftId}
+            value={myContent}
           />
         </Container>
       </>
