@@ -36,7 +36,7 @@ class App extends Component {
           path="/"
           render={() => (
             <main>
-              <h1>Welcome. This is an authorization template.</h1>
+              <h1>Welcome.</h1>
             </main>
           )}
         />
@@ -62,7 +62,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/users"
+          path="/profile"
           render={() => (user ? <Users user={this.state.user} /> : <Redirect to="/login" />)}
         />
         <Route
