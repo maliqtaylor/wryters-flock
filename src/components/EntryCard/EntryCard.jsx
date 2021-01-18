@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card } from "react-materialize";
-import "materialize-css/dist/css/materialize.min.css";
+
+
 
 function EntryCard({ user, entry }) {
   console.log(entry);
@@ -18,6 +18,7 @@ function EntryCard({ user, entry }) {
     //     </div>
     //   </div>
     // </Card>
+    <p>hi</p>
     )
 }
 
