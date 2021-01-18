@@ -7,7 +7,7 @@ const draftsCtrl = require('../controllers/drafts')
 router.use(require('../config/auth'));
 router.get("/:id", checkAuth, draftsCtrl.show)
 router.post("/", checkAuth, draftsCtrl.create)
-router.put("entries/:id", checkAuth, draftsCtrl.update)
+router.put("/:id", checkAuth, draftsCtrl.update)
 // router.delete("/entries/:id", commentsCtrl.delete)
 
 function checkAuth(req, res, next) {
