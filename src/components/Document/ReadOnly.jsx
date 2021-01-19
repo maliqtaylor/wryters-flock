@@ -1,4 +1,5 @@
 import React from 'react';
+import './Document.css'
 import { Editor } from '@tinymce/tinymce-react';
 
 const ReadOnly = (props) => {
