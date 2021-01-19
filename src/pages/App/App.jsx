@@ -69,7 +69,7 @@ class App extends Component {
         />
         <Route
           exact
-          path="/entries/index"
+          path="/quote"
           render={() => <AddQuote user={this.state.user} />}
         />
         <Route
