@@ -25,7 +25,7 @@ const DisplayEntry = (props) => {
   return (
     <Container>
       <ReadOnly value={value} />
-      <Comment value={comments} />
+      {/* <Comment value={comments} /> */}
     </Container>
     
   );
