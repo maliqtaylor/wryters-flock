@@ -9,6 +9,7 @@ import "./App.css";
 import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
 import EntryIndex from "../EntryIndex/EntryIndex";
+import DisplayEntry from "../DisplayEntry/DisplayEntry";
 
 //Navbar, form pages, entries, searches, profile
 
@@ -78,6 +79,14 @@ class App extends Component {
             user={this.state.user} 
           />}
         />
+         <Route
+          exact
+          path="/entry"
+          render={( {history}) => <DisplayEntry 
+            history={history}
+            user={this.state.user} 
+          />}
+         />  
         <Route
           exact
           path="/draft"

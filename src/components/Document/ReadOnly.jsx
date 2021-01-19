@@ -1,9 +1,10 @@
 import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-const Document = (props) => {
+const ReadOnly = (props) => {
   return (
     <Editor
+      disabled={true}
       apiKey={`${process.env.API_KEY}`}
       value={props.value}
       init={{
@@ -19,14 +20,10 @@ const Document = (props) => {
           'insertdatetime media table paste code help wordcount',
           'nonbreaking',
         ],
-        toolbar:
-          'undo redo | formatselect | bold italic backcolor |' +
-          'alignleft aligncenter alignright alignjustify |' +
-          'bullist numlist |'
+        toolbar: false
       }}
-      onEditorChange={props.onChange}
     />
   );
 }
 
-export default Document
+export default ReadOnly

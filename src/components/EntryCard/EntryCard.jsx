@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -47,6 +48,8 @@ function EntryCard({ user, entry }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  
+  const history = useHistory();
 
   return (
     <Card className={classes.root}>
@@ -71,11 +74,13 @@ function EntryCard({ user, entry }) {
         </IconButton>
 
         |
-
-         <IconButton aria-label="like">
-          <DescriptionTwoToneIcon />
-        </IconButton>
-
+        < Link to={
+          {pathname: '/entry', 
+           state: { content: entry.content.content }}} >
+            <IconButton aria-label="like">
+                <DescriptionTwoToneIcon />
+            </IconButton>
+        </Link>
         |
 
         {user._id === entry.owner._id ?
