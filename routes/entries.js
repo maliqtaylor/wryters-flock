@@ -4,7 +4,7 @@ const entriesCtrl = require('../controllers/entries')
 // -------PUBLIC ROUTES____________//
 
 router.get('/', entriesCtrl.index)
-router.get('/:id', entriesCtrl.show)
+router.get('/:id', entriesCtrl.displayEntry)
 
 
 // ______PRIVATE ROUTES___________//

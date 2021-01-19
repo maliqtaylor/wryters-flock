@@ -82,8 +82,9 @@ class App extends Component {
          <Route
           exact
           path="/entry"
-          render={( {history}) => <DisplayEntry 
+          render={( {history, location}) => <DisplayEntry 
             history={history}
+            location={location}
             user={this.state.user} 
           />}
          />  
