@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { Container } from "semantic-ui-react";
-import ReadOnly from "../../components/Document/ReadOnly";
 import * as entriesAPI from '../../services/entry-api'
+import ReadOnly from "../../components/Document/ReadOnly";
+import CommentSection from "../../components/Comments/Comments"
 
 const DisplayEntry = (props) => {
   
@@ -21,13 +22,11 @@ const DisplayEntry = (props) => {
     })();
   }, [])
 
-
   return (
     <Container>
       <ReadOnly value={value} />
-      <Comment value={comments} />
-    </Container>
-    
+      <CommentSection value={comments} />
+    </Container>  
   );
 };
 
