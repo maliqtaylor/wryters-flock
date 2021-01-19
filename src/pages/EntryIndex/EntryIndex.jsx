@@ -1,34 +1,53 @@
-import React, {useState, useEffect} from 'react';
-import * as entriesAPI  from '../../services/entry-api'
+import React, { useState, useEffect } from 'react';
+import * as entriesAPI from '../../services/entry-api'
 import EntryCard from '../../components/EntryCard/EntryCard'
-import "materialize-css/dist/css/materialize.min.css";
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Box } from '@material-ui/core'
 
+const useStyles = makeStyles(theme => ({
+  alignItemsAndJustifyContent: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}))
 
 const EntryIndex = (props) => {
 
-    const [entries, setEntries] = useState([])
+  const [entries, setEntries] = useState([])
+
+  useEffect(() => {
+    (async function () {
+      const entries = await entriesAPI.index()
+      setEntries(entries)
+    })();
+  }, [])
+
+  const classes = useStyles()
+
+  return (
+    <>
+      <CssBaseline />
+      <Container maxWidth="sm">
+
+        {entries.map(entry =>
+
+          <div className={classes.alignItemsAndJustifyContent}>
+            <EntryCard
+              key={entry._id}
+              entry={entry}
+              user={props.user}
+            />
+          </div>
 
 
-    useEffect(() => {
-        (async function(){
-            const entries = await entriesAPI.index()
-            setEntries(entries)
-        })();
-    },[])
-    
-    return(
-        <>
-            <div className='container'>   
-                {entries.map(entry =>
-                    <EntryCard
-                        key={entry._id}
-                        entry={entry}
-                        user={props.user} 
-                    />
-                )}
-            </div>
-        </>
-    )
+        )}
+
+      </Container>
+    </>
+  )
 }
 
 export default EntryIndex;
