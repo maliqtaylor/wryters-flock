@@ -5,6 +5,7 @@ module.exports = {
   new: newEntry,
   index,
   show,
+  displayEntry,
   update,
   delete: deleteEntry
 }
@@ -32,6 +33,14 @@ function show(req, res) {
     .populate('content')
     .then(entry => { res.json(entry) })
     .catch(err => { res.json(err) })
+}
+
+function displayEntry(req, res){
+  Entry.findById(req.params.id)
+  .populate('owner')
+  .populate('content')
+  .then(entry => {res.json(entry)})
+  .catch(err => {res.json(err)})
 }
 
 function update(req, res) {

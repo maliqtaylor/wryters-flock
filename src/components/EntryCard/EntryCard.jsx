@@ -51,6 +51,7 @@ function EntryCard({ user, entry }) {
   
   const history = useHistory();
 
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -76,7 +77,7 @@ function EntryCard({ user, entry }) {
         |
         < Link to={
           {pathname: '/entry', 
-           state: { content: entry.content.content }}} >
+           state: { content: entry.content.content, id_num: entry._id }}} >
             <IconButton aria-label="like">
                 <DescriptionTwoToneIcon />
             </IconButton>
