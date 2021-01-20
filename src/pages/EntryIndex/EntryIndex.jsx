@@ -25,6 +25,12 @@ const EntryIndex = (props) => {
     })();
   }, [])
 
+  async function handleDeleteEntry(id){
+    await entriesAPI.deleteEntry(id)
+    setEntries(entries.filter(entry => entry._id !== id))
+  }
+
+
   const classes = useStyles()
 
   return (
@@ -39,6 +45,7 @@ const EntryIndex = (props) => {
               key={entry._id}
               entry={entry}
               user={props.user}
+              handleDeleteEntry={handleDeleteEntry}
             />
           </div>
 
