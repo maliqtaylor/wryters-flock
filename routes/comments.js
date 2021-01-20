@@ -4,7 +4,7 @@ router.use(require('../config/auth'));
 
 router.get("/entries/:id", commentsCtrl.index)
 router.post("/entries/:id", checkAuth, commentsCtrl.create)
-router.delete("/:entryID/:id", checkAuth, commentsCtrl.delete)
+router.delete("/:entryID/:id", checkAuth, commentsCtrl.deleteOne)
 // router.put("entries/:id", commentsCtrl.update)
 
 
