@@ -20,8 +20,8 @@ function create (req,res) {
         (res => {res.json(entry)})
     })
     .catch(err => res.json(err))
-
 }
+
 function update (req,res) {
 
     
