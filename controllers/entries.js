@@ -39,6 +39,7 @@ function displayEntry(req, res){
   Entry.findById(req.params.id)
   .populate('owner')
   .populate('content')
+  .populate('comments.commentor')
   .then(entry => {res.json(entry)})
   .catch(err => {res.json(err)})
 }
