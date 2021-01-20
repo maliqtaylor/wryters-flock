@@ -22,3 +22,4 @@ export function displayEntry(entryID) {
     }, { mode: "cors" })
       .then(res => res.json());
 }
+
