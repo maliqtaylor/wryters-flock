@@ -1,7 +1,7 @@
 import React from 'react';
 import * as draftAPI from "../../services/draft-api";
 import { useHistory } from "react-router-dom";
-import Carousel from 'react-material-ui-carousel'
+import { Carousel } from 'react-material-ui-carousel'
 import { Container } from "semantic-ui-react";
 import Item from '../../components/Item/Item'
 

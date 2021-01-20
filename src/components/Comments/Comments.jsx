@@ -20,9 +20,19 @@ const CommentSection = (props) => {
 
       <div>{props.comments.map(comment =>
         <>
-          <p>{comment.content}</p>
-          <p>{comment.commentor.name}</p>
-          <p>at-{comment.createdAt}</p>
+          
+          <h5> {comment.content}</h5>
+          <p>by: {comment.commentor.name}</p>
+          <p>at: {comment.createdAt}</p>
+          
+  
+          {/* {props.user._id === comment.commentor._id ? */}
+              <button type='submit'  
+                onClick={()=> props.handleDeleteComment(comment, comment._id, props.entryID)}
+              >Delete Comment</button> 
+            
+              <button>like</button>
+
         </>
 
       )}

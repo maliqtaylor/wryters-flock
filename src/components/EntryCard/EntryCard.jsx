@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function EntryCard({ user, entry }) {
+function EntryCard({ user, entry, props }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -86,7 +86,9 @@ function EntryCard({ user, entry }) {
 
         {user._id === entry.owner._id ?
           <IconButton aria-label="like">
-            <DeleteOutlineTwoToneIcon />
+            <DeleteOutlineTwoToneIcon 
+              onClick ={() => props.handleDeleteEntry(entry._id)}
+            />
           </IconButton>
           : null
         }
