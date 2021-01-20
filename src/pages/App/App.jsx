@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import Users from "../Users/Users";
+import Profile from "../Profile/Profile";
 import "./App.css";
 import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
@@ -65,7 +65,7 @@ class App extends Component {
         <Route
           exact
           path="/profile"
-          render={() => (user ? <Users user={this.state.user} /> : <Redirect to="/login" />)}
+          render={() => (user ? <Profile user={this.state.user} /> : <Redirect to="/login" />)}
         />
         <Route
           exact
@@ -75,19 +75,19 @@ class App extends Component {
         <Route
           exact
           path="/entries"
-          render={() => <EntryIndex 
-            user={this.state.user} 
+          render={() => <EntryIndex
+            user={this.state.user}
           />}
         />
-         <Route
+        <Route
           exact
           path="/entry"
-          render={( {history, location}) => <DisplayEntry 
+          render={({ history, location }) => <DisplayEntry
             history={history}
             location={location}
-            user={this.state.user} 
+            user={this.state.user}
           />}
-         />  
+        />
         <Route
           exact
           path="/draft"

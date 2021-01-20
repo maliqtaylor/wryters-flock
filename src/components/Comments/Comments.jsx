@@ -1,37 +1,34 @@
 import React from 'react'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment, Header } from 'semantic-ui-react'
 
 
 
 const CommentSection = (props) => {
-  
- console.log(props.comments)
- return (
-  <Comment.Group>
-    <Header as='h4' dividing>
-      Comments
+
+  console.log(props.comments)
+  return (
+    <Comment.Group>
+      <Header as='h4' dividing>
+        Comments
     </Header>
 
 
-    <form onSubmit={props.handleSubmit} >
-      <labe>Comment Here</labe>
-      <input placeholder="..." name="content" onChange={props.handleChange}/>
-      <button type="submit">Leave A Comment</button >
-    </form>
+      <textarea name="content" form="cmmtform" onChange={props.handleChange} placeholder="comment here..." />
+      <form onSubmit={props.handleSubmit} id='cmmtform' >
+        <button type="submit">Leave A Comment</button >
+      </form>
 
-    
-    
-   <div>{props.comments.map(comment => 
+      <div>{props.comments.map(comment =>
         <>
           <p>{comment.content}</p>
-         <p>{comment.commentor.name}</p>
+          <p>{comment.commentor.name}</p>
           <p>at-{comment.createdAt}</p>
-        </>  
+        </>
 
-    )}
-    </div> 
-  
-  </Comment.Group>
+      )}
+      </div>
+
+    </Comment.Group>
   )
 }
 
