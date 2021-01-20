@@ -32,7 +32,7 @@ app.use('/api/entries', entriesRouter);
 app.use('/api/quotes', quotesRouter);
 app.use('/api/drafts', draftsRouter)
 // app.use('/api/likes', likesRouter);
-// app.use('/api/comments', commentsRouter);
+app.use('/api/comments', commentsRouter);
 // app.use('/api/ratings', ratingsRouter);
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
