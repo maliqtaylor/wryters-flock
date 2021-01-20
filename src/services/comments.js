@@ -8,4 +8,6 @@ export function createComment(comment, entryID) {
       body: JSON.stringify(comment)
   }, {mode: "cors"})
   .then(res => res.json());
-  }
+}
+
+

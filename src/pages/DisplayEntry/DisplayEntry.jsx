@@ -22,17 +22,15 @@ const DisplayEntry = (props) => {
     (async function () {
       const entry = await entriesAPI.displayEntry(entryID)
       const comments = entry.comments
-      console.log(comments)
-      setComments(comments)
+      setComments([...comments])
     })();
-  }, [entryID])
+  }, [])
 
 
 
   async function handleAddComment(comment, entryID){
     console.log(props.user)
     const current_comment = await commentAPI.createComment(comment, entryID)
-    console.log(current_comment)
   }
 
   async function handleSubmit(e) {
