@@ -9,6 +9,7 @@ module.exports = {
 function index (req, res) {
     Entry.findById(req.params.id)
     .then(entry =>  res.json(entry.comments)
+    
     )
     .catch(err => res.json(err))
 }
