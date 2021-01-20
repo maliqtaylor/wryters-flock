@@ -2,7 +2,6 @@ const Entry = require("../models/entry")
 
 module.exports = {
     create,
-    update, 
     delete: deleteComment,
     index
 }
@@ -24,15 +23,13 @@ function create (req,res) {
     .catch(err => res.json(err))
 }
 
-function update (req,res) {
 
-    
-}
-function deleteComment (req,res) {
-    // Entry.findById(req.params.id)
-    // .then(entry => {
-    //     entry.comments.
-    // })
-
-    
+function deleteComment (req, res) {
+    // console.log(req.params.id)
+    // console.log(req.params.entryID)
+    Entry.findById(req.params.entryID)
+    .then(entry => {
+        let idx = entry.comments.indexOf(req.params.id)
+        entry.comments.splice(idx, 1)
+    })   
 }

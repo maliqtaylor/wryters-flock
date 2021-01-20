@@ -38,10 +38,10 @@ const DisplayEntry = (props) => {
     handleAddComment(newComment, entryID)
   }
 
-  async function handleDeleteComment(comment, id){
+  async function handleDeleteComment(comment, id, entryID){
     if (props.user._id === comment.commentor._id) 
     {
-      await commentAPI.deleteComment(id)
+      await commentAPI.deleteComment(entryID, id)
     }
     else { return }
   }
@@ -56,6 +56,7 @@ const DisplayEntry = (props) => {
         commentor="Commentor"
         handleDeleteComment={handleDeleteComment}
         user={props.user}
+        entryID={entryID}
         />
     </Container>  
   )
