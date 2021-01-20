@@ -12,7 +12,7 @@ const entriesRouter = require('./routes/entries');
 const draftsRouter = require('./routes/drafts')
 const quotesRouter = require('./routes/quotes')
 // const likesRouter = require('./routes/likes');
-// const commentsRouter = require('./routes/comments');
+const commentsRouter = require('./routes/comments');
 // const ratingsRouter = require('./routes/ratings');
 
 const cors = require('cors')
