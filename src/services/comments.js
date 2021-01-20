@@ -10,4 +10,18 @@ export function createComment(comment, entryID) {
   .then(res => res.json());
 }
 
+export function deleteComment(id) {
+  return fetch(BASE_URL + id, {
+    method: 'DELETE',
+    headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+  }, {mode: 'cors'})
+  .then(res => res.json())
+}
 
+// export function getOne(id) {
+//   return fetch(BASE_URL + id, {
+//     method: "GET",
+//     headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+// }, {mode: "cors"})
+// .then(res => res.json());
+// }
