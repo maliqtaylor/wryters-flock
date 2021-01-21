@@ -3,7 +3,6 @@ import * as entriesAPI from '../../services/entry-api'
 import EntryCard from '../../components/EntryCard/EntryCard'
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +34,6 @@ const EntryIndex = (props) => {
 
   return (
     <>
-      <CssBaseline />
       <Container maxWidth="sm">
 
         {entries.map(entry =>
