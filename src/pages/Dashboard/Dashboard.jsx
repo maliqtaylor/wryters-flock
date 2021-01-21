@@ -40,25 +40,33 @@ const Dashboard = (props) => {
     handleCreateDraft();
   }
 
-  const stuff = entries.concat(drafts)
-  console.log(stuff)
+  // const stuff = entries.concat(drafts)
+  // console.log(stuff)
+
+  console.log(drafts)
 
   return (
     <>
       <h1>Dashboard</h1>
       <Container text>
         <Card.Group id='card-row'>
-          {stuff.map((stuff, i) => {
+          {drafts.map((d, i) => {
             return (
               <Card>
                 <Card.Content>
                   <Card.Header>
-                    <Link>
-                    {stuff.title ? stuff.title : stuff.content.content}
+                    <Link to={{
+                      pathname: '/draft',
+                      state: {
+                        draftId: d._id,
+                        content: d.content
+                      }
+                    }}>
+                      draft {i + 1}
                     </Link>
                   </Card.Header>
                   <Card.Description>
-                      ...full text
+                    ...full text
                   </Card.Description>
                 </Card.Content>
               </Card>
