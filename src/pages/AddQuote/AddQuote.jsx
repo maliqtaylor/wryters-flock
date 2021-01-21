@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button, Card } from "semantic-ui-react";
 import "./AddQuote.css";
 import axios from "axios";
 
@@ -23,15 +24,23 @@ function AddQuote(props) {
   }, []);
 
   return (
-    <>
-      <div className="AddQuote">
+    <Card id="AddQuote">
+      <div class="card">
+        <div class="content">
+          <div class="header">{quote.quoteText}</div>
+          <br/>
+          <div class="description">- {quote.quoteAuthor}</div>
+        </div>
+          <br/>
         <form>
-          <p>Quote: {quote.quoteText}</p>
-          <p>Author: {quote.quoteAuthor}</p>
-          <button type="submit">Get a Random Quote</button>
+          <Button compact color="pink" type="submit" class="ui bottom attached button">
+            <i class="add icon"></i>
+            Get Another Quote
+          </Button>
         </form>
       </div>
-    </>
+    </Card>
   );
 }
 export default AddQuote;
+
