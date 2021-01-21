@@ -28,9 +28,21 @@ const NavBar = ({ user, handleLogout }) => {
               </Link>
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Item>
-            <Link to="/entries">View Posts</Link>
-          </Menu.Item>
+          <Dropdown item text="Explore">
+            <Dropdown.Menu>
+              <Link to='/entries'>
+                <Dropdown.Item>
+                  View Posts
+              </Dropdown.Item>
+              </Link>
+
+              <Link to='/quote'>
+                <Dropdown.Item>
+                  Generate a Quote
+              </Dropdown.Item>
+              </Link>
+            </Dropdown.Menu>
+          </Dropdown>
         </Menu>
       ) : (
           <Menu>
@@ -40,9 +52,7 @@ const NavBar = ({ user, handleLogout }) => {
             </Link>{" "}
             </Menu.Item>
             <Link to="/signup" className="nav-link">
-              <Menu.Item>
-                Sign Up
-            </Menu.Item>
+              <Menu.Item>Sign Up</Menu.Item>
             </Link>{" "}
           </Menu>
         )}

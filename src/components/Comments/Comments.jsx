@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Comment, Form, Header, Container } from "semantic-ui-react";
 import "./Comments.css";
-
+import moment from "moment"
 
 
 const CommentMin = (props) => (
@@ -38,7 +38,7 @@ const CommentMin = (props) => (
               <Comment.Content>
                 <Comment.Author as="a">{comment.commentor.name}</Comment.Author>
                 <Comment.Metadata>
-                  <span>@ -{comment.createdAt}.toLocaleTimeString()</span>
+                  <span>{moment(comment.createdAt).format("MMMM Do YYYY, h:mm a")}{" "}</span>
                 </Comment.Metadata>
                 <Comment.Text>{comment.content}</Comment.Text>
               </Comment.Content>
@@ -58,6 +58,7 @@ const CommentMin = (props) => (
               <Button color="pink">like</Button>
             )}
           </Container>
+
         </>
       ))}
     </div>

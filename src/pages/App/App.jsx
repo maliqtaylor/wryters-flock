@@ -5,11 +5,11 @@ import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Dashboard from "../Dashboard/Dashboard";
-import "./App.css";
 import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
+import "./App.css";
 
 //Navbar, form pages, entries, searches, profile
 
