@@ -25,7 +25,13 @@ const EntryIndex = (props) => {
     })();
   }, []);
 
-  const classes = useStyles();
+  async function handleDeleteEntry(id){
+    await entriesAPI.deleteEntry(id)
+    setEntries(entries.filter(entry => entry._id !== id))
+  }
+
+
+  const classes = useStyles()
 
   return (
     <>
@@ -33,7 +39,12 @@ const EntryIndex = (props) => {
       <Container maxWidth="sm">
         {entries.map((entry) => (
           <div className={classes.alignItemsAndJustifyContent}>
-            <EntryCard key={entry._id} entry={entry} user={props.user} />
+            <EntryCard
+              key={entry._id}
+              entry={entry}
+              user={props.user}
+              handleDeleteEntry={handleDeleteEntry}
+            />
           </div>
         ))}
       </Container>

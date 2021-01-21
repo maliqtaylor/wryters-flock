@@ -11,14 +11,20 @@ const NavBar = ({ user, handleLogout }) => {
 
           <Dropdown item text="My Info">
             <Dropdown.Menu>
-              <Link to="" onClick={handleLogout}>
-                <Dropdown.Item>LogOut</Dropdown.Item>
-              </Link>
-              <Link to="/profile">
-                <Dropdown.Item>Profile</Dropdown.Item>
+              <Link to="/dashboard">
+                <Dropdown.Item>
+                  Dashboard
+              </Dropdown.Item>
               </Link>
               <Link to="">
-                <Dropdown.Item>Settings</Dropdown.Item>
+                <Dropdown.Item>
+                  Settings
+              </Dropdown.Item>
+              </Link>
+              <Link to="" onClick={handleLogout}>
+                <Dropdown.Item>
+                  LogOut
+              </Dropdown.Item>
               </Link>
             </Dropdown.Menu>
           </Dropdown>
@@ -28,13 +34,6 @@ const NavBar = ({ user, handleLogout }) => {
           <Menu.Item>
             <Link to="/quote">Get a Quote</Link>
           </Menu.Item>
-
-          
-          {/* <li><Link to="/draft" className="nav-link">Draft your Masterpiece</Link></li> */}
-          {/* <li className="nav-search-bar">
-                <input type="text"/>
-                <button type="button" to="/entries">Search</button>
-              </li> */}
         </Menu>
       ) : (
         <Menu>

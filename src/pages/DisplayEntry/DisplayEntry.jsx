@@ -1,17 +1,20 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "semantic-ui-react";
 import * as entriesAPI from '../../services/entry-api'
 import ReadOnly from "../../components/Document/ReadOnly";
 import CommentSection from "../../components/Comments/Comments"
-import {useForm} from "../../components/hooks/useForm"
+import { useForm } from "../../components/hooks/useForm"
 import * as commentAPI from "../../services/comments"
+import IconButton from '@material-ui/core/IconButton'
 
 const DisplayEntry = (props) => {
-  
+
+  console.log(props)
+
   const location = props.location
   const value = location.state.content;
   const entryID = location.state.id_num
- 
+
   const [comments, setComments] = useState([])
 
   const [newComment, handleChange] = useForm({
@@ -28,7 +31,7 @@ const DisplayEntry = (props) => {
 
 
 
-  async function handleAddComment(comment, entryID){
+  async function handleAddComment(comment, entryID) {
     console.log(props.user)
     await commentAPI.createComment(comment, entryID)
   }
@@ -38,27 +41,35 @@ const DisplayEntry = (props) => {
     handleAddComment(newComment, entryID)
   }
 
-  async function handleDeleteComment(comment, id){
-    if (props.user._id === comment.commentor._id) 
-    {
-      await commentAPI.deleteComment(id)
+  async function handleDeleteComment(comment, id, entryID) {
+    if (props.user._id === comment.commentor._id) {
+      await commentAPI.deleteComment(entryID, id)
     }
     else { return }
   }
 
+  console.log(props.location);
+
   return (
     <Container>
       <ReadOnly value={value} />
-      <CommentSection comments={comments} 
+      {props.user._id === props.location.state.ownerID ?
+        <IconButton>
+          Edit Entry
+        </IconButton>
+        : null
+      }
+
+      <CommentSection comments={comments}
         handleSubmit={handleSubmit}
         newComment={newComment}
         handleChange={handleChange}
         commentor="Commentor"
         handleDeleteComment={handleDeleteComment}
         user={props.user}
-        />
-    </Container>  
-  
+        entryID={entryID}
+      />
+    </Container>
   )
 };
 

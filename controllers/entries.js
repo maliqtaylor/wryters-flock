@@ -53,7 +53,7 @@ function update(req, res) {
 
 function deleteEntry(req, res) {
   Entry.findByIdAndDelete(req.params.id)
-    .then(entry => { res.json(entry) })
+    .then(res => { res.json(entry) })
     .catch(err => { res.json(err) })
 }
 

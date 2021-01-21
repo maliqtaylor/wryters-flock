@@ -11,9 +11,9 @@ const authRouter = require('./routes/auth');
 const entriesRouter = require('./routes/entries');
 const draftsRouter = require('./routes/drafts')
 const quotesRouter = require('./routes/quotes')
-// const likesRouter = require('./routes/likes');
+const likesRouter = require('./routes/likes');
 const commentsRouter = require('./routes/comments');
-// const ratingsRouter = require('./routes/ratings');
+
 
 const cors = require('cors')
 
@@ -31,9 +31,9 @@ app.use('/api/users', userRouter);
 app.use('/api/entries', entriesRouter);
 app.use('/api/quotes', quotesRouter);
 app.use('/api/drafts', draftsRouter)
-// app.use('/api/likes', likesRouter);
+app.use('/api/likes', likesRouter);
 app.use('/api/comments', commentsRouter);
-// app.use('/api/ratings', ratingsRouter);
+
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
