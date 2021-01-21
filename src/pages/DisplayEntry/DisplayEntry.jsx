@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton'
 
 const DisplayEntry = (props) => {
 
-  console.log(props)
 
   const location = props.location
   const value = location.state.content;
@@ -27,7 +26,7 @@ const DisplayEntry = (props) => {
       const comments = entry.comments
       setComments([...comments])
     })();
-  }, [])
+  },[])
 
 
 
@@ -39,11 +38,17 @@ const DisplayEntry = (props) => {
   async function handleSubmit(e) {
     e.preventDefault()
     handleAddComment(newComment, entryID)
+    newComment.commentor ={}
+    newComment.commentor.name = props.user.name
+    newComment.commentor._id = props.user._id
+    newComment.createdAt = Date.now().toString()
+    setComments([...comments, newComment])
   }
 
   async function handleDeleteComment(comment, id, entryID) {
     if (props.user._id === comment.commentor._id) {
       await commentAPI.deleteComment(entryID, id)
+      setComments(comments.filter(c => c._id !== id))
     }
     else { return }
   }
