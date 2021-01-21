@@ -11,21 +11,21 @@ With WrytersFlock you can create, edit and save your literary projects in the cl
 Production:
 
 WrytersFlock was produced using these technologies:
-    * JavaScript
-    * Node
-    * React
-    * CSS
-    * HTML
-    * MongoDB-Atlas
-    * Mongoose
-    * Express
-    * Axios
-    * Nodemon
-    * Semantic-ui
-    * Moment.js
-    * Material-ui
-    * For the Quotes- https://forismatic.com/en/api/
-    * For the TextEditor-https://www.tiny.cloud/docs/integrations/react/
+* JavaScript
+* Node
+* React
+* CSS
+* HTML
+* MongoDB-Atlas
+* Mongoose
+* Express
+* Axios
+* Nodemon
+* Semantic-ui
+* Moment.js
+* Material-ui
+* For the Quotes- https://forismatic.com/en/api/
+* For the TextEditor-https://www.tiny.cloud/docs/integrations/react/
 
 Link to Trello
 
