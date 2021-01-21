@@ -1,53 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import * as entriesAPI from '../../services/entry-api'
-import EntryCard from '../../components/EntryCard/EntryCard'
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import React, { useState, useEffect } from "react";
+import * as entriesAPI from "../../services/entry-api";
+import EntryCard from "../../components/EntryCard/EntryCard";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import QuoteCard from "../../components/QuoteCard/QuoteCard";
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   alignItemsAndJustifyContent: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
-}))
+}));
 
 const EntryIndex = (props) => {
-
-  const [entries, setEntries] = useState([])
+  const [entries, setEntries] = useState([]);
 
   useEffect(() => {
     (async function () {
-      const entries = await entriesAPI.index()
-      setEntries(entries)
+      const entries = await entriesAPI.index();
+      setEntries(entries);
     })();
-  }, [])
+  }, []);
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <>
       <CssBaseline />
       <Container maxWidth="sm">
-
-        {entries.map(entry =>
-
+        {entries.map((entry) => (
           <div className={classes.alignItemsAndJustifyContent}>
-            <EntryCard
-              key={entry._id}
-              entry={entry}
-              user={props.user}
-            />
+            <EntryCard key={entry._id} entry={entry} user={props.user} />
           </div>
-
-
-        )}
-
+        ))}
       </Container>
+
+
     </>
-  )
-}
+  );
+};
 
 export default EntryIndex;
+
+// {/* {quotes.map((quote) => (
+//   <QuoteCard key={quote._id} quote={quote} user={props.user} />
+// ))} */}

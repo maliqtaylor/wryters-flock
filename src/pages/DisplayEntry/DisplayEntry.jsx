@@ -58,6 +58,7 @@ const DisplayEntry = (props) => {
         user={props.user}
         />
     </Container>  
+  
   )
 };
 

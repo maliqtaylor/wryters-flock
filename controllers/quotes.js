@@ -23,7 +23,9 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    
+    // Quote.findById(req.params.id).then(function(quote) {
+    //     return quote
+    // })
 }
 
 function deleteQuote(req, res) {

@@ -31,6 +31,7 @@ const entrySchema = new Schema({
   genre: { type: String, enum: ["Fantasy", "Mystery", "Drama", "Comedy", "AutoBiography", "Non-Fiction", "Fiction", "Fan-Fic", "Sci-Fi", "Horror", "Romance", "Historical", "Myth", "Adventure"] },
   owner: { type: Schema.Types.ObjectId, ref: "User" },
   content: { type: Schema.Types.ObjectId, ref: "Draft" },
+  quote: {type: Schema.Types.ObjectId, ref: "Quote"},
   comments: [commentSchema],
   likes: [likeSchema],
   rating: [ratingSchema]
