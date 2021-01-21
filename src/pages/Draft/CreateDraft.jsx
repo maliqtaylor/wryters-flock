@@ -9,8 +9,10 @@ import * as draftAPI from "../../services/draft-api";
 const CreateDraft = (props) => {
   const history = useHistory()
 
+  console.log(props);
+
   const [content, setContent] = useContent({
-    content: ""
+    content: props.history.location.state.content
   })
 
   useEffect(() => {
@@ -18,6 +20,12 @@ const CreateDraft = (props) => {
       await draftAPI.update(props.history.location.state.draftId, content)
     })();
   })
+
+  useEffect(() => {
+    return () => {
+      console.log(props);
+    };
+  }, []);
 
   let myContent = draftAPI.getOne(props.history.location.state.draftId)
 
