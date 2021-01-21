@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
-import Profile from "../Profile/Profile";
+import Dashboard from "../Dashboard/Dashboard";
 import "./App.css";
 import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
@@ -64,8 +64,8 @@ class App extends Component {
         />
         <Route
           exact
-          path="/profile"
-          render={() => (user ? <Profile user={this.state.user} /> : <Redirect to="/login" />)}
+          path="/dashboard"
+          render={() => (user ? <Dashboard user={this.state.user} /> : <Redirect to="/login" />)}
         />
         <Route
           exact
