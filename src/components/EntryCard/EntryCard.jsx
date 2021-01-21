@@ -41,13 +41,16 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function EntryCard(props ) {
+function EntryCard( props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  console.log(props)
+
 
 
   return (
@@ -76,7 +79,7 @@ function EntryCard(props ) {
         < Link to={
           {
             pathname: '/entry',
-            state: { content: props.entry.content.content, id_num: props.entry._id }
+            state: { content: props.entry.content.content, id_num: props.entry._id, ownerID: props.entry.owner._id  }
           }} >
           <IconButton aria-label="like">
             <DescriptionTwoToneIcon />

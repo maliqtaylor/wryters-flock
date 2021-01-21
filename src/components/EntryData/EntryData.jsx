@@ -8,7 +8,6 @@ function EntryData(props) {
   const [invalidEntry, setValidEntry] = useState(true);
   const formRef = useRef();
 
-  console.log(props.draftId)
 
   const [state, handleChange] = useForm({
     title: "",

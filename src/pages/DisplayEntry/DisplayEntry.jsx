@@ -5,8 +5,11 @@ import ReadOnly from "../../components/Document/ReadOnly";
 import CommentSection from "../../components/Comments/Comments"
 import {useForm} from "../../components/hooks/useForm"
 import * as commentAPI from "../../services/comments"
+import IconButton from '@material-ui/core/IconButton'
 
 const DisplayEntry = (props) => {
+
+  console.log(props)
   
   const location = props.location
   const value = location.state.content;
@@ -49,6 +52,13 @@ const DisplayEntry = (props) => {
   return (
     <Container>
       <ReadOnly value={value} />
+      {props.user._id === props.owner ?
+        <IconButton>
+              Edit Entry
+        </IconButton>
+        : null
+      }
+
       <CommentSection comments={comments} 
         handleSubmit={handleSubmit}
         newComment={newComment}

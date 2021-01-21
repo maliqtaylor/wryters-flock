@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css'
 import * as draftAPI from "../../services/draft-api";
+import * as entriesAPI from "../../services/entry-api";
 import { useHistory, Link } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { Card } from 'semantic-ui-react'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const history = useHistory()
 
   const [drafts, setDrafts] = useState([])
+  const [entries, setEntries] = useState([])
 
 
   useEffect(() => {
     (async function () {
       const drafts = await draftAPI.index()
-      console.log(drafts);
       setDrafts(drafts)
+    })();
+  }, [])
+
+  useEffect(() => {
+    (async function () {
+      const entries = await entriesAPI.index()
+      setEntries(entries.filter(e => e.owner._id === props.user._id))
     })();
   }, [])
 
@@ -32,22 +40,25 @@ const Dashboard = () => {
     handleCreateDraft();
   }
 
+  const stuff = entries.concat(drafts)
+  console.log(stuff)
+
   return (
     <>
       <h1>Dashboard</h1>
       <Container text>
         <Card.Group id='card-row'>
-          {drafts.map((draft, i) => {
+          {stuff.map((stuff, i) => {
             return (
               <Card>
                 <Card.Content>
                   <Card.Header>
                     <Link>
-                      Draft {i + 1}
+                    {stuff.title ? stuff.title : stuff.content.content}
                     </Link>
                   </Card.Header>
                   <Card.Description>
-                    Steve wants to add you to the group <strong>best friends</strong>
+                      ...full text
                   </Card.Description>
                 </Card.Content>
               </Card>
