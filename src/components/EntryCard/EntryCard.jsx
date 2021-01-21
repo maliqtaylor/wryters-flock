@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function EntryCard({ user, entry, props }) {
+function EntryCard(props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -53,15 +53,15 @@ function EntryCard({ user, entry, props }) {
   return (
     <Card className={classes.root}>
       <CardHeader
-        title={entry.title}
-        subheader={entry.owner.name}
+        title={props.entry.title}
+        subheader={props.entry.owner.name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Genre: {entry.genre}
+          Genre: {props.entry.genre}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Category: {entry.classification}
+          Category: {props.entry.classification}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -76,7 +76,7 @@ function EntryCard({ user, entry, props }) {
         < Link to={
           {
             pathname: '/entry',
-            state: { content: entry.content.content, id_num: entry._id }
+            state: { content: props.entry.content.content, id_num: props.entry._id }
           }} >
           <IconButton aria-label="like">
             <DescriptionTwoToneIcon />
@@ -84,10 +84,10 @@ function EntryCard({ user, entry, props }) {
         </Link>
         |
 
-        {user._id === entry.owner._id ?
+        {props.user._id === props.entry.owner._id ?
           <IconButton aria-label="like">
             <DeleteOutlineTwoToneIcon 
-              onClick ={() => props.handleDeleteEntry(entry._id)}
+              onClick ={() => props.handleDeleteEntry(props.entry._id)}
             />
           </IconButton>
           : null
@@ -108,7 +108,7 @@ function EntryCard({ user, entry, props }) {
         <CardContent>
           <Typography paragraph>Description:</Typography>
           <Typography paragraph>
-            {entry.description}
+            {props.entry.description}
           </Typography>
         </CardContent>
       </Collapse>

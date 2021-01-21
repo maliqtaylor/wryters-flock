@@ -8,16 +8,6 @@ import Item from '../../components/Item/Item'
 const Profile = () => {
   const history = useHistory()
 
-  var items = [
-    {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!"
-    },
-    {
-      name: "Random Name #2",
-      description: "Hello World!"
-    }
-  ]
 
   async function handleCreateDraft(newEntry) {
     let draftInfo = await draftAPI.create(newEntry);
@@ -38,11 +28,6 @@ const Profile = () => {
         <button type='submit'>New Draft</button>
       </form>
 
-      <Carousel>
-        {
-          items.map((item, i) => <Item key={i} item={item} />)
-        }
-      </Carousel>
     </Container>
   )
 }
