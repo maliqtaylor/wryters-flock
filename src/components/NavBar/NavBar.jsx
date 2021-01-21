@@ -28,25 +28,34 @@ const NavBar = ({ user, handleLogout }) => {
               </Link>
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Item>
-            <Link to="/entries">View Posts</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/quote">Get a Quote</Link>
-          </Menu.Item>
+          <Dropdown item text="Explore">
+            <Dropdown.Menu>
+              <Link to='/entries'>
+                <Dropdown.Item>
+                  View Posts
+              </Dropdown.Item>
+              </Link>
+
+              <Link to='/quote'>
+                <Dropdown.Item>
+                  Generate a Quote
+              </Dropdown.Item>
+              </Link>
+            </Dropdown.Menu>
+          </Dropdown>
         </Menu>
       ) : (
-        <Menu>
-          <Menu.Item>
-            <Link to="/login" className="nav-link">
-              Log In
+          <Menu>
+            <Menu.Item>
+              <Link to="/login" className="nav-link">
+                Log In
             </Link>{" "}
-          </Menu.Item>
-          <Link to="/signup" className="nav-link">
-            <Menu.Item>Sign Up</Menu.Item>
-          </Link>{" "}
-        </Menu>
-      )}
+            </Menu.Item>
+            <Link to="/signup" className="nav-link">
+              <Menu.Item>Sign Up</Menu.Item>
+            </Link>{" "}
+          </Menu>
+        )}
     </>
   );
 };
