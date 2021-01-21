@@ -25,7 +25,7 @@ const CommentSection = (props) => {
           <h5> {comment.content}</h5>
           <p>by: {comment.commentor.name}</p>
           <p>
-          {moment(comment.createdAt).format("MMMM Do YYYY, h:mm a")}{" "}
+          {moment(comment.createdAt).format("LLL")}{" "}
           </p>
           {/* {props.user._id === comment.commentor._id ? */}
               <button type='submit'  

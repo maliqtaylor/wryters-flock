@@ -7,55 +7,47 @@ const NavBar = ({ user, handleLogout }) => {
     <>
       {user ? (
         <Menu>
-          <Menu.Item>Wryters Flock</Menu.Item>
+          <Menu.Item>
+            <Link to="/">Wryters Flock</Link>
+          </Menu.Item>
 
           <Dropdown item text="My Info">
             <Dropdown.Menu>
               <Link to="/dashboard">
-                <Dropdown.Item>
-                  Dashboard
-              </Dropdown.Item>
+                <Dropdown.Item>Dashboard</Dropdown.Item>
               </Link>
               <Link to="">
-                <Dropdown.Item>
-                  Settings
-              </Dropdown.Item>
+                <Dropdown.Item>Settings</Dropdown.Item>
               </Link>
               <Link to="" onClick={handleLogout}>
-                <Dropdown.Item>
-                  LogOut
-              </Dropdown.Item>
+                <Dropdown.Item>LogOut</Dropdown.Item>
               </Link>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown item text="Explore">
             <Dropdown.Menu>
-              <Link to='/entries'>
-                <Dropdown.Item>
-                  View Posts
-              </Dropdown.Item>
+              <Link to="/entries">
+                <Dropdown.Item>View Posts</Dropdown.Item>
               </Link>
 
-              <Link to='/quote'>
-                <Dropdown.Item>
-                  Generate a Quote
-              </Dropdown.Item>
+              <Link to="/quote">
+                <Dropdown.Item>Get Inspiration</Dropdown.Item>
               </Link>
             </Dropdown.Menu>
           </Dropdown>
         </Menu>
       ) : (
-          <Menu>
-            <Menu.Item>
-              <Link to="/login" className="nav-link">
-                Log In
+        <Menu>
+          <Menu.Item>
+            <Link to="/login" className="nav-link">
+              Log In
             </Link>{" "}
-            </Menu.Item>
-            <Link to="/signup" className="nav-link">
-              <Menu.Item>Sign Up</Menu.Item>
-            </Link>{" "}
-          </Menu>
-        )}
+          </Menu.Item>
+          <Link to="/signup" className="nav-link">
+            <Menu.Item>Sign Up</Menu.Item>
+          </Link>{" "}
+        </Menu>
+      )}
     </>
   );
 };
