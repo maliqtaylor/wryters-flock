@@ -35,7 +35,6 @@ const EntryIndex = (props) => {
 
   return (
     <>
-      <CssBaseline />
       <Container maxWidth="sm">
         {entries.map((entry) => (
           <div className={classes.alignItemsAndJustifyContent}>
