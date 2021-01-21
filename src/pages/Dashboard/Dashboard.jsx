@@ -3,8 +3,9 @@ import "./Dashboard.css";
 import * as draftAPI from "../../services/draft-api";
 import * as entriesAPI from "../../services/entry-api";
 import { useHistory, Link } from "react-router-dom";
-import { Container } from "semantic-ui-react";
-import { Card } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import { Card } from 'semantic-ui-react'
+
 
 const Dashboard = (props) => {
   const history = useHistory();
@@ -72,7 +73,7 @@ const Dashboard = (props) => {
       </Container>
       <div className="new-draft">
         <form onSubmit={handleSubmit}>
-          <button type="submit">New Draft</button>
+          <Button color='pink' compact type='submit'>New Draft</Button>
         </form>
       </div>
     </>
