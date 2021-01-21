@@ -1,6 +1,6 @@
 import React from 'react'
 import { Comment, Header } from 'semantic-ui-react'
-
+import moment from "moment"
 
 
 const CommentSection = (props) => {
@@ -24,9 +24,9 @@ const CommentSection = (props) => {
           
           <h5> {comment.content}</h5>
           <p>by: {comment.commentor.name}</p>
-          <p>at: {comment.createdAt}</p>
-          
-  
+          <p>
+          {moment(comment.createdAt).format("MMMM Do YYYY, h:mm a")}{" "}
+          </p>
           {/* {props.user._id === comment.commentor._id ? */}
               <button type='submit'  
                 onClick={()=> props.handleDeleteComment(comment, comment._id, props.entryID)}

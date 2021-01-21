@@ -10,6 +10,8 @@ import AddQuote from "../AddQuote/AddQuote";
 import CreateDraft from "../Draft/CreateDraft";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
+import moment from "moment"
+
 
 //Navbar, form pages, entries, searches, profile
 
