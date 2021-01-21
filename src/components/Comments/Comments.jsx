@@ -7,6 +7,7 @@ const CommentSection = (props) => {
 
   console.log(props.comments)
   return (
+    
     <Comment.Group>
       <Header as='h4' dividing>
         Comments
