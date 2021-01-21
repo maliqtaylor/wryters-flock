@@ -1,5 +1,6 @@
 const Entry = require('../models/entry')
 const Draft = require('../models/draft')
+const Quote = require('../models/quote')
 
 module.exports = {
   new: newEntry,
