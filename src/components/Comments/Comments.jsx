@@ -33,12 +33,13 @@ const CommentMin = (props) => (
       
       {props.comments.map((comment) => (
         <>
+
           <Container id="comment-box">
             <Comment>
               <Comment.Content>
                 <Comment.Author as="a">{comment.commentor.name}</Comment.Author>
                 <Comment.Metadata>
-                  <span>{moment(comment.createdAt).format("MMMM Do YYYY, h:mm a")}{" "}</span>
+                  <span>  {moment(comment.createdAt).format("LLL")}{" "}</span>
                 </Comment.Metadata>
                 <Comment.Text>{comment.content}</Comment.Text>
               </Comment.Content>
@@ -58,11 +59,10 @@ const CommentMin = (props) => (
               <Button color="pink">like</Button>
             )}
           </Container>
-
         </>
       ))}
     </div>
   </Comment.Group>
 );
 export default CommentMin;
-// const timestamp = Date.now()
+
