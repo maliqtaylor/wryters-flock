@@ -142,7 +142,7 @@ function EntryData(props) {
             </div>
           </div>
           <div>
-            <Button type="submit" color='pink' compact  disabled={invalidEntry}>
+            <Button id='entry-submit-button' type="submit" color='pink' compact  disabled={invalidEntry}>
               Add Entry
           </Button>
           </div>
