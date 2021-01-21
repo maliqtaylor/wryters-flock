@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
+import { Button, Container } from "semantic-ui-react";
 import * as entryAPI from "../../services/entry-api";
+import './EntryData.css'
 
 function EntryData(props) {
   const history = useHistory();
@@ -40,6 +42,7 @@ function EntryData(props) {
 
   return (
     <>
+    <Container id='form-container'>
       <div className="AddEntry">
         <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
           <div className="row">
@@ -139,12 +142,13 @@ function EntryData(props) {
             </div>
           </div>
           <div>
-            <button type="submit" className="btn red" disabled={invalidEntry}>
+            <Button type="submit" color='pink' compact  disabled={invalidEntry}>
               Add Entry
-          </button>
+          </Button>
           </div>
         </form>
       </div>
+    </Container>
     </>
   );
 }
