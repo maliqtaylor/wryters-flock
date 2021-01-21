@@ -31,21 +31,22 @@ const NavBar = ({ user, handleLogout }) => {
           <Menu.Item>
             <Link to="/entries">View Posts</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/quote">Get a Quote</Link>
+          </Menu.Item>
         </Menu>
       ) : (
-          <Menu>
-            <Menu.Item>
-              <Link to="/login" className="nav-link">
-                Log In
+        <Menu>
+          <Menu.Item>
+            <Link to="/login" className="nav-link">
+              Log In
             </Link>{" "}
-            </Menu.Item>
-            <Link to="/signup" className="nav-link">
-              <Menu.Item>
-                Sign Up
-            </Menu.Item>
-            </Link>{" "}
-          </Menu>
-        )}
+          </Menu.Item>
+          <Link to="/signup" className="nav-link">
+            <Menu.Item>Sign Up</Menu.Item>
+          </Link>{" "}
+        </Menu>
+      )}
     </>
   );
 };
