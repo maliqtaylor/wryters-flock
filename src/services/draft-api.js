@@ -1,11 +1,11 @@
 import tokenService from "../services/tokenService"
 const BASE_URL = '/api/drafts/'
 
-export function create(entry) {
+export function create(draftTitle) {
   return fetch(BASE_URL, {
     method: "POST",
     headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-    body: JSON.stringify(entry)
+    body: JSON.stringify(draftTitle)
   }, { mode: "cors" })
     .then(res => res.json());
 }
@@ -21,7 +21,6 @@ export function index() {
   return fetch(BASE_URL, {
     method: "GET",
     headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-    body: JSON.stringify()
   }, { mode: "cors" })
     .then(res => res.json());
 }

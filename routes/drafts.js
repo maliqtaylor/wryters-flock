@@ -5,6 +5,7 @@ const draftsCtrl = require('../controllers/drafts')
 
 // ______PRIVATE ROUTES___________//
 router.use(require('../config/auth'));
+router.get('/', checkAuth, draftsCtrl.index)
 router.get("/:id", checkAuth, draftsCtrl.show)
 router.post("/", checkAuth, draftsCtrl.create)
 router.put("/:id", checkAuth, draftsCtrl.update)
