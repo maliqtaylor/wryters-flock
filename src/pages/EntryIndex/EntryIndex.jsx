@@ -32,8 +32,8 @@ const EntryIndex = (props) => {
   return (
     <>
       <Container maxWidth="sm">
-        {entries.map((entry) => (
-          <div className={classes.alignItemsAndJustifyContent}>
+        {entries.map((entry, i) => (
+          <div key={i} className={classes.alignItemsAndJustifyContent}>
             <EntryCard
               key={entry._id}
               entry={entry}

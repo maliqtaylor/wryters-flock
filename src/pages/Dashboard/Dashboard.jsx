@@ -40,7 +40,7 @@ const Dashboard = (props) => {
     handleCreateDraft();
   }
 
-  console.log(drafts);
+  console.log(entries);
 
   return (
     <>
@@ -49,7 +49,7 @@ const Dashboard = (props) => {
         <Card.Group id="card-row">
           {drafts.map((d, i) => {
             return (
-              <Card>
+              <Card key={i}>
                 <Card.Content>
                   <Card.Header>
                     <Link
