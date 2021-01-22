@@ -10,8 +10,8 @@ import CreateDraft from "../Draft/CreateDraft";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
 import featherflock from "../../featherflock.png"
-
 import "./App.css";
+
 
 class App extends Component {
   state = {

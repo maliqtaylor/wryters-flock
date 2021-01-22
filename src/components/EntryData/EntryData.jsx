@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
 import { Button, Container } from "semantic-ui-react";
 import * as entryAPI from "../../services/entry-api";
-import './EntryData.css'
+import "./EntryData.css";
 
 function EntryData(props) {
   const history = useHistory();
@@ -43,112 +43,105 @@ function EntryData(props) {
 
   return (
     <>
-    <Container id='form-container'>
-      <div className="AddEntry">
-        <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
-          <div className="row">
-            <div></div>
-            <div className="input-field col s12">
-              <input type="hidden" name="content" value={props.myContent} />
-              <input
-                name="title"
-                id="title"
-                type="text"
-                className="active"
-                value={state.title}
-                onChange={handleChange}
-                required
-              />
-              <label htmlFor="title">Title</label>
+      <Container id="form-container">
+        <div className="AddEntry">
+          <form className="col s12" ref={formRef} onSubmit={handleSubmit}>
+            <div className="row">
+              <div></div>
+              <div className="input-field col s12">
+                <input type="hidden" name="content" value={props.myContent} />
+                <label htmlFor="title">Title: </label>
+                <input
+                  name="title"
+                  id="title"
+                  type="text"
+                  className="active"
+                  value={state.title}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input
-                name="description"
-                id="description"
-                type="text"
-                className="active"
-                value={state.description}
-                onChange={handleChange}
-                required
-              />
-              <label htmlFor="description">Description</label>
+            <div className="row">
+              <div className="input-field col s12">
+                <label htmlFor="description">Description: </label>
+                <input
+                  name="description"
+                  id="description"
+                  type="text"
+                  className="active"
+                  value={state.description}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input
-                name="private"
-                id="private"
-                type="checkbox"
-                className="active"
-                value={state.private}
-                onChange={handleChange}
-              />
-              <label htmlFor="private">Private</label>
+            <div className="row">
+              <div className="input-field col s12">
+                <label htmlFor="name">Classification: </label>
+                <select
+                  name="classification"
+                  id="classification"
+                  type="text"
+                  className="active"
+                  value={state.classification}
+                  onChange={handleChange}
+                >
+                  <option value="Poem">Poem</option>
+                  <option value="Short Story">Short Story</option>
+                  <option value="Blog">Blog</option>
+                  <option value="Lyrics">Lyrics</option>
+                  <option value="Novel">Novel</option>
+                  <option value="Essay">Essay</option>
+                  <option value="Speech">Speech</option>
+                  <option value="Comic">Comic</option>
+                  <option value="Journal">Journal Entry</option>
+                  <option value="Play">Play</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <select
-                name="classification"
-                id="classification"
-                type="text"
-                className="active"
-                value={state.classification}
-                onChange={handleChange}
+            <div className="row">
+              <div className="input-field col s12">
+                <label htmlFor="name">Genre: </label>
+                <select
+                  name="genre"
+                  id="genre"
+                  type="text"
+                  className="active"
+                  value={state.genre}
+                  onChange={handleChange}
+                >
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="AutoBiography">Autobiography</option>
+                  <option value="Non-Fiction">Non-Fiction</option>
+                  <option value="Fiction">Fiction</option>
+                  <option value="Fan-Fic">Fan-Fiction</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Historical">Historical</option>
+                  <option value="Myth">Myth</option>
+                  <option value="Adventure">Adventure</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <Button
+                id="entry-submit-button"
+                type="submit"
+                color="pink"
+                compact
+                disabled={invalidEntry}
               >
-                <option value="Poem">Poem</option>
-                <option value="Short Story">Short Story</option>
-                <option value="Blog">Blog</option>
-                <option value="Lyrics">Lyrics</option>
-                <option value="Novel">Novel</option>
-                <option value="Essay">Essay</option>
-                <option value="Speech">Speech</option>
-                <option value="Comic">Comic</option>
-                <option value="Journal">Journal Entry</option>
-                <option value="Play">Play</option>
-              </select>
-              <label htmlFor="name">Classification</label>
+                Add Entry
+              </Button>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <select
-                name="genre"
-                id="genre"
-                type="text"
-                className="active"
-                value={state.genre}
-                onChange={handleChange}
-              >
-                <option value="Fantasy">Fantasy</option>
-                <option value="Mystery">Mystery</option>
-                <option value="Drama">Drama</option>
-                <option value="Comedy">Comedy</option>
-                <option value="AutoBiography">Autobiography</option>
-                <option value="Non-Fiction">Non-Fiction</option>
-                <option value="Fiction">Fiction</option>
-                <option value="Fan-Fic">Fan-Fiction</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Horror">Horror</option>
-                <option value="Romance">Romance</option>
-                <option value="Historical">Historical</option>
-                <option value="Myth">Myth</option>
-                <option value="Adventure">Adventure</option>
-              </select>
-              <label htmlFor="name">Genre</label>
-            </div>
-          </div>
-          <div>
-            <Button id='entry-submit-button' type="submit" color='pink' compact  disabled={invalidEntry}>
-              Add Entry
-          </Button>
-          </div>
-        </form>
-      </div>
-    </Container>
+          </form>
+        </div>
+      </Container>
     </>
   );
 }
