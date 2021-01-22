@@ -36,7 +36,8 @@ class App extends Component {
           path="/"
           render={() => (
             <main>
-              <h1>Welcome. This is the home page</h1>
+              <h1>Welcome to Wryters Flock.</h1>
+              <p>Click on Dashboard to get started writing, or Explore to see what others are working on.</p>
             </main>
           )}
         />
