@@ -6,6 +6,9 @@ This application renders a rich text editor with collaborative features to allow
 
 Get started -->  https://wryters-flock.herokuapp.com/
 
+
+<img width="1440" alt="Screen Shot 2021-01-22 at 12 02 39 AM" src="https://user-images.githubusercontent.com/73343168/105453614-0f5ab100-5c46-11eb-8ae1-f184e48d3161.png">
+
 #### Features:
 
 With WrytersFlock you can create, edit and save your literary projects in the cloud database. You can view your own and other’s projects as well as offer feedback, allowing you to focus test your ideas amongst other users. It is simple to get started: click the link to navigate to the website. Browse the latest posts. Or, sign up and start writing using our text editor. 
@@ -40,6 +43,7 @@ Synchronous learning of React-hooks and Full-Stack Development, multiple nested 
 
 Successful implementation and use of React Hooks, successful managment of git hub workflow including handling of merge conflits and successful error debugging at all stages of development. Successful implementation of a full-stack coupled app in a group project, collaborative setting.
 
+<img width="1436" alt="Screen Shot 2021-01-22 at 12 03 42 AM" src="https://user-images.githubusercontent.com/73343168/105453708-34e7ba80-5c46-11eb-9c7f-8a6648033de5.png">
 
 #### Planned Enhancements:
 * Likes and Ratings
