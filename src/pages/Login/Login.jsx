@@ -39,7 +39,7 @@ class LoginPage extends Component {
       <main className="Login">
         <h3>Log In</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Email : </label>
+          <label htmlFor="email">Email: </label>
           <input
             type="text"
             autoComplete="off"
@@ -49,7 +49,7 @@ class LoginPage extends Component {
             onChange={this.handleChange}
             className="form-field"
           />
-          <label htmlFor="password">Password : </label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             autoComplete="off"
