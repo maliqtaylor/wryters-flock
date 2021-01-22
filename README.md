@@ -10,6 +10,9 @@ Get started -->  https://wryters-flock.herokuapp.com/
 
 With WrytersFlock you can create, edit and save your literary projects in the cloud database. You can view your own and other’s projects as well as offer feedback, allowing you to focus test your ideas amongst other users. It is simple to get started: click the link to navigate to the website. Browse the latest posts. Or, sign up and start writing using our text editor. 
 
+##### Planning
+Trello Board Link --> https://trello.com/b/i6HCCLhK/wryters-flock
+
 ##### Production:
 
 WrytersFlock was produced using these technologies:
@@ -28,8 +31,6 @@ WrytersFlock was produced using these technologies:
 * Material-ui
 * For the Quotes- https://forismatic.com/en/api/
 * For the TextEditor-https://www.tiny.cloud/docs/integrations/react/
-
-Link to Trello
 
 ##### Production Challenges: 
     Synchronous learning of React-hooks and Full-Stack Development, multiple nested components requiring props manipulation at varying levels, difficulties with proxy and authorization of APIs. 
