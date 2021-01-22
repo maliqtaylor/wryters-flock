@@ -24,7 +24,7 @@ const DisplayEntry = (props) => {
       const comments = entry.comments;
       setComments([...comments]);
     })();
-  },[])
+  }, [])
 
   async function handleAddComment(comment, entryID) {
     console.log(props.user);
@@ -34,16 +34,17 @@ const DisplayEntry = (props) => {
   async function handleSubmit(e) {
     e.preventDefault()
     handleAddComment(newComment, entryID)
-    newComment.commentor ={}
+    newComment.commentor = {}
     newComment.commentor.name = props.user.name
     newComment.commentor._id = props.user._id
     newComment.createdAt = Date.now().toString()
-    setComments([...comments, newComment])
+    setComments([newComment, ...comments])
+    console.log(e.target);
   }
 
   async function handleDeleteComment(comment, id, entryID) {
     if (props.user._id === comment.commentor._id) {
-            await commentAPI.deleteComment(entryID, id)
+      await commentAPI.deleteComment(entryID, id)
       setComments(comments.filter(c => c._id !== id))
     } else {
       return;
