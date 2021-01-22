@@ -4,8 +4,8 @@ import * as draftAPI from "../../services/draft-api";
 import * as entriesAPI from "../../services/entry-api";
 import { useHistory, Link } from "react-router-dom";
 import { Container, Button } from "semantic-ui-react";
-import { Card } from 'semantic-ui-react'
-
+import { Card } from "semantic-ui-react";
+import EntryCard from "../../components/EntryCard/EntryCard";
 
 const Dashboard = (props) => {
   const history = useHistory();
@@ -51,20 +51,18 @@ const Dashboard = (props) => {
             return (
               <Card key={i}>
                 <Card.Content>
-                  <Card.Header>
-                    <Link
-                      to={{
-                        pathname: "/draft",
-                        state: {
-                          draftId: d._id,
-                          content: d.content,
-                        },
-                      }}
-                    >
-                      draft {i + 1}
-                    </Link>
-                  </Card.Header>
-                  <Card.Description>...full text</Card.Description>
+                  <Card.Header>Draft {i + 1}</Card.Header>
+                  <Link
+                    to={{
+                      pathname: "/draft",
+                      state: {
+                        draftId: d._id,
+                        content: d.content,
+                      },
+                    }}
+                  >
+                    <Card.Description>View Full Text</Card.Description>
+                  </Link>
                 </Card.Content>
               </Card>
             );
@@ -73,7 +71,9 @@ const Dashboard = (props) => {
       </Container>
       <div className="new-draft">
         <form onSubmit={handleSubmit}>
-          <Button color='pink' compact type='submit'>New Draft</Button>
+          <Button color="pink" compact type="submit">
+            New Draft
+          </Button>
         </form>
       </div>
     </>
