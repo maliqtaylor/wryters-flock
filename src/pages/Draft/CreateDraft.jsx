@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Document from "../../components/Document/Document";
 import EntryData from "../../components/EntryData/EntryData";
+import Modal from "../../components/Modal/Modal"
 import { useHistory } from "react-router-dom";
 import { useContent } from "../../components/hooks/useContent";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import './CreateDraft.css'
 import * as draftAPI from "../../services/draft-api";
 
 const CreateDraft = (props) => {
   const history = useHistory();
 
-  console.log(props);
+  const [isOpen, setIsOpen] = useState(false)
 
   const [content, setContent] = useContent({
     content: props.history.location.state.content,
@@ -34,10 +36,17 @@ const CreateDraft = (props) => {
       <>
         <Container text>
           <Document value={content.content} onChange={setContent} />
-          <EntryData
-            draftId={props.history.location.state.draftId}
-            value={myContent}
-          />
+
+          <div id='postBtn'>
+            <Button color='pink' onClick={() => setIsOpen(true)}> Post </Button>
+          </div>
+
+          <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <EntryData
+              draftId={props.history.location.state.draftId}
+              value={myContent}
+            />
+          </Modal>
         </Container>
       </>
     );

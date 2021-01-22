@@ -78,19 +78,6 @@ function EntryData(props) {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <label htmlFor="private">Private: </label>
-                <input
-                  name="private"
-                  id="private"
-                  type="checkbox"
-                  className="active"
-                  value={state.private}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
                 <label htmlFor="name">Classification: </label>
                 <select
                   name="classification"
