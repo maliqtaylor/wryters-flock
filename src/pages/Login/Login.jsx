@@ -12,6 +12,7 @@ class LoginPage extends Component {
   };
 
   handleChange = (e) => {
+    console.log(e.target.name)
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -56,6 +57,7 @@ class LoginPage extends Component {
             id="password"
             value={pw}
             name="pw"
+            onChange={this.handleChange}
             className="form-field"
           />
           <Button compact color='pink'>Log In</Button>&nbsp;&nbsp;&nbsp;
