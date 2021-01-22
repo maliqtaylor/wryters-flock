@@ -10,6 +10,7 @@ import CreateDraft from "../Draft/CreateDraft";
 import EntryIndex from "../EntryIndex/EntryIndex";
 import DisplayEntry from "../DisplayEntry/DisplayEntry";
 import "./App.css";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   state = {
@@ -39,7 +40,6 @@ class App extends Component {
               <h1>Welcome to Wryters Flock.</h1>
               <p>Login or Signup, then click on Dashboard to get started writing, or Explore to see what others are working on.</p>
               <img height="500" src="https://i.imgur.com/XmCeojf.png" alt="feather" className="feather"/>
-
             </main>
           )}
         />
