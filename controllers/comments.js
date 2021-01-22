@@ -14,7 +14,7 @@ function create(req, res) {
   Entry.findById(req.params.id)
     .then((entry) => {
       req.body.commentor = req.user._id;
-      entry.comments.push(req.body);
+      entry.comments.unshift(req.body);
       entry.save()((res) => {
         res.json(entry);
       });

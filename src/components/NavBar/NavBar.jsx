@@ -16,9 +16,6 @@ const NavBar = ({ user, handleLogout }) => {
               <Link to="/dashboard">
                 <Dropdown.Item>Dashboard</Dropdown.Item>
               </Link>
-              <Link to="">
-                <Dropdown.Item>Settings</Dropdown.Item>
-              </Link>
               <Link to="" onClick={handleLogout}>
                 <Dropdown.Item>LogOut</Dropdown.Item>
               </Link>
@@ -37,17 +34,17 @@ const NavBar = ({ user, handleLogout }) => {
           </Dropdown>
         </Menu>
       ) : (
-        <Menu>
-          <Menu.Item>
-            <Link to="/login" className="nav-link">
-              Log In
+          <Menu>
+            <Menu.Item>
+              <Link to="/login" className="nav-link">
+                Log In
             </Link>{" "}
-          </Menu.Item>
-          <Link to="/signup" className="nav-link">
-            <Menu.Item>Sign Up</Menu.Item>
-          </Link>{" "}
-        </Menu>
-      )}
+            </Menu.Item>
+            <Link to="/signup" className="nav-link">
+              <Menu.Item>Sign Up</Menu.Item>
+            </Link>{" "}
+          </Menu>
+        )}
     </>
   );
 };

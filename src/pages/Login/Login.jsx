@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
+import { Button } from "semantic-ui-react";
 import "./Login.css";
 
 class LoginPage extends Component {
@@ -29,15 +30,16 @@ class LoginPage extends Component {
   };
 
   updateMessage = (msg) => {
-    this.setState({message: msg});
-  }
+    this.setState({ message: msg });
+  };
 
   render() {
-    const {email, pw} = this.state
+    const { email, pw } = this.state;
     return (
       <main className="Login">
         <h3>Log In</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <label htmlFor="email">Email: </label>
           <input
             type="text"
             autoComplete="off"
@@ -45,21 +47,19 @@ class LoginPage extends Component {
             value={email}
             name="email"
             onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             autoComplete="off"
             id="password"
             value={pw}
             name="pw"
-            onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="password">Password</label>
-          <button >Log In</button>&nbsp;&nbsp;&nbsp;
-          <Link to="/">
-            Cancel
-          </Link>
+          <Button compact color='pink'>Log In</Button>&nbsp;&nbsp;&nbsp;
+          <Link to="/">Cancel</Link>
         </form>
         <p>{this.state.message}</p>
       </main>

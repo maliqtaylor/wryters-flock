@@ -36,8 +36,10 @@ class App extends Component {
           path="/"
           render={() => (
             <main>
-              <h1>Welcome to Wryter's Flock</h1>
+              <h1>Welcome to Wryters Flock.</h1>
+              <p>Login or Signup, then click on Dashboard to get started writing, or Explore to see what others are working on.</p>
               <img height="400" src="../../ " alt="feather" className="feather"/>
+
             </main>
           )}
         />
