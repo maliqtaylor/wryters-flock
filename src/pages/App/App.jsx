@@ -37,7 +37,7 @@ class App extends Component {
           render={() => (
             <main>
               <h1>Welcome to Wryters Flock.</h1>
-              <p>Click on Dashboard to get started writing, or Explore to see what others are working on.</p>
+              <p>Login or Signup, then click on Dashboard to get started writing, or Explore to see what others are working on.</p>
             </main>
           )}
         />

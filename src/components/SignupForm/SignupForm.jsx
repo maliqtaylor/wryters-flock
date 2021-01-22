@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
+import { Button } from "semantic-ui-react";
 
 class SignupForm extends Component {
   state = {
@@ -40,6 +41,7 @@ class SignupForm extends Component {
       <div>
         <h3>Sign Up</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
+        <label htmlFor="name">Name: </label>
           <input
             type="text"
             autoComplete="off"
@@ -47,8 +49,10 @@ class SignupForm extends Component {
             value={name}
             name="name"
             onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="name">Name</label>
+          
+          <label htmlFor="email">Email: </label>
           <input
             type="text"
             autoComplete="off"
@@ -56,8 +60,10 @@ class SignupForm extends Component {
             value={email}
             name="email"
             onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="email">Email</label>
+         
+          <label htmlFor="password">Password: </label>
           <input
             type="password"
             autoComplete="off"
@@ -65,8 +71,10 @@ class SignupForm extends Component {
             value={password}
             name="password"
             onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="password">Password</label>
+          
+          <label htmlFor="confirm">Confirm Password: </label>
           <input
             type="password"
             autoComplete="off"
@@ -74,9 +82,10 @@ class SignupForm extends Component {
             value={passwordConf}
             name="passwordConf"
             onChange={this.handleChange}
+            className="form-field"
           />
-          <label htmlFor="confirm">Confirm Password</label>
-          <button disabled={this.isFormInvalid()}>Sign Up</button>
+         
+          <Button compact color='pink' disabled={this.isFormInvalid()}>Sign Up</Button>
           &nbsp;&nbsp;
           <Link to="/">Cancel</Link>
         </form>
