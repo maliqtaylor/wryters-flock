@@ -60,7 +60,10 @@ class LoginPage extends Component {
             onChange={this.handleChange}
             className="form-field"
           />
-          <Button compact color='pink'>Log In</Button>&nbsp;&nbsp;&nbsp;
+          <Button compact color="pink">
+            Log In
+          </Button>
+          &nbsp;&nbsp;&nbsp;
           <Link to="/">Cancel</Link>
         </form>
         <p>{this.state.message}</p>
