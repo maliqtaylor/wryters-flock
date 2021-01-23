@@ -20,7 +20,7 @@ const CommentMin = (props) => (
       </Button>
     </Form>
     <div >
-      
+
       {props.comments.map((comment) => (
         <>
 
@@ -46,8 +46,8 @@ const CommentMin = (props) => (
                 Delete Comment
               </Button>
             ) : (
-              <Button color="pink">like</Button>
-            )}
+                null
+              )}
           </Container>
         </>
       ))}
