@@ -1,3 +1,7 @@
+const tracer = require('dd-trace').init({
+  env: 'node-hooks'
+});
+
 const express = require('express');
 const app = express();
 const path = require('path');
