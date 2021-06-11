@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
-import { Button } from "semantic-ui-react";
+import { Button, Form, Container } from "semantic-ui-react";
 
 class SignupForm extends Component {
   state = {
@@ -40,55 +40,65 @@ class SignupForm extends Component {
     return (
       <div>
         <h3>Sign Up</h3>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name: </label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="name"
-            value={name}
-            name="name"
-            onChange={this.handleChange}
-            className="form-field"
-          />
-          
-          <label htmlFor="email">Email: </label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="email"
-            value={email}
-            name="email"
-            onChange={this.handleChange}
-            className="form-field"
-          />
-         
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={password}
-            name="password"
-            onChange={this.handleChange}
-            className="form-field"
-          />
-          
-          <label htmlFor="confirm">Confirm Password: </label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="confirm"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={this.handleChange}
-            className="form-field"
-          />
-         
-          <Button compact color='pink' disabled={this.isFormInvalid()}>Sign Up</Button>
+        <Container>
+          <Form autoComplete="off" onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label htmlFor="name"> Name </label>
+              <input
+                type="text"
+                autoComplete="off"
+                id="name"
+                value={name}
+                name="name"
+                onChange={this.handleChange}
+                className="form-field"
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <label htmlFor="email"> Email </label>
+              <input
+                type="text"
+                autoComplete="off"
+                id="email"
+                value={email}
+                name="email"
+                onChange={this.handleChange}
+                className="form-field"
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <label htmlFor="password"> Password </label>
+              <input
+                type="password"
+                autoComplete="off"
+                id="password"
+                value={password}
+                name="password"
+                onChange={this.handleChange}
+                className="form-field"
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <label htmlFor="confirm"> Confirm Password </label>
+              <input
+                type="password"
+                autoComplete="off"
+                id="confirm"
+                value={passwordConf}
+                name="passwordConf"
+                onChange={this.handleChange}
+                className="form-field"
+              />
+            </Form.Field>
+
+            <Button compact color='pink' disabled={this.isFormInvalid()}>Sign Up</Button>
           &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
-        </form>
+          <Link to="/" className='cancel'>Cancel</Link>
+          </Form>
+        </Container>
       </div>
     );
   }
