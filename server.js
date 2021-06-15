@@ -1,5 +1,12 @@
 const tracer = require('dd-trace').init({
-  env: 'node-hooks'
+  env: 'node-hooks',
+  logInjection: true,
+  analytics: true,
+  runtimeMetrics: true,
+  tags:{
+    env: process.env.NODE_ENV,
+    owner: 'maliq'
+  },
 });
 
 const express = require('express');
